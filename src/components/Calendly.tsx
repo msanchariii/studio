@@ -9,7 +9,7 @@ const Calendly = () => {
             target="_blank"
             rel="noopener noreferrer"
             type="button"
-            className="bg-cambridge hover:bg-cambridge/90 rounded-lg px-3 py-3 font-medium text-white transition-colors duration-300"
+            className="bg-black rounded-full px-4 py-3 font-medium text-white transition-colors duration-300"
         >
             Schedule A Meeting
         </Link>

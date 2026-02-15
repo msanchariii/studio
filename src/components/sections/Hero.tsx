@@ -3,21 +3,8 @@ import { sectionDescriptions } from "@/data/globals";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { SplitText } from "gsap/all";
-import Image from "next/image";
 import { useRef } from "react";
-import { DiMongodb } from "react-icons/di";
-import { FaReact } from "react-icons/fa";
-import { FaNodeJs } from "react-icons/fa6";
 
-import {
-    SiExpress,
-    SiFastapi,
-    SiNextdotjs,
-    SiPostgresql,
-    SiSanity,
-    SiStrapi,
-    SiTailwindcss,
-} from "react-icons/si";
 import Calendly from "../Calendly";
 
 export default function Hero() {
@@ -73,21 +60,36 @@ export default function Hero() {
     }, []);
 
     return (
-        <section className="border-cambridge-blue/20 bg-beige/20 relative flex flex-col items-center justify-center overflow-hidden">
+        <section className="border-cambridge-blue/20 bg-beige/20 relative flex min-h-screen flex-col overflow-hidden bg-[url(/bg.svg)] bg-contain">
+            <div className="text-center">
+                <h1 className="mb-4 text-7xl font-medium">
+                    SteadFast Web Studio
+                </h1>
+                <p className="mx-auto mb-8 max-w-3xl">
+                    {sectionDescriptions.hero}
+                </p>
+                <div className="mb-8 flex justify-center gap-4">
+                    <Calendly />
+                    <button className="rounded-full border-2 border-black/50 px-4">
+                        Contact
+                    </button>
+                </div>
+            </div>
+            <div className="mx-auto aspect-[16/9] w-full max-w-3xl rounded-xl bg-white">
+                hihi
+            </div>
+
             <div className="relative z-20 mx-auto flex h-full w-full flex-col lg:flex-row">
-                <div className="order-1 flex basis-1/2 flex-col items-center justify-between gap-4 lg:order-none lg:items-start">
-                    <h1 className="text-7xl">
+                {/* <h1 className="text-7xl">
                         SteadFast
                         <br />
                         <span className="text-5xl tracking-[10px]">
-                            Web Studio
+                        Web Studio
                         </span>
-                    </h1>
-                    <p className="max-w-lg">{sectionDescriptions.hero}</p>
-                    {/* <button className="text-cambridge-blue lg:bg-cambridge-blue/90 lg:hover:bg-cambridge-blue/80 rounded-full bg-white px-4 py-3 lg:text-white">
-                        Contact Now
-                    </button> */}
-                    <Calendly />
+                        </h1> */}
+                {/* <p className="max-w-lg">{sectionDescriptions.hero}</p> */}
+                {/* <div className="order-1 flex basis-1/2 flex-col items-center justify-between gap-4 lg:order-none lg:items-start">
+                    
                     <div className="stat-list flex flex-wrap items-center gap-4">
                         <SiTailwindcss size={24} className="" />
                         <FaReact size={24} className="" />
@@ -109,9 +111,9 @@ export default function Hero() {
                         width={700}
                         className="mx-auto my-4"
                     />
-                </div>
+                </div> */}
             </div>
-            <div className="bg-cambridge-blue absolute -top-[100%] z-10 size-[150%] rounded-full lg:-top-1/4 lg:-right-1/4 lg:size-[900px]"></div>
+            {/* <div className="bg-cambridge-blue absolute -top-[100%] z-10 size-[150%] rounded-full lg:-top-1/4 lg:-right-1/4 lg:size-[900px]"></div> */}
         </section>
     );
 }
