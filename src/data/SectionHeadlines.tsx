@@ -12,7 +12,7 @@ const SectionHeadlines = ({
             <h2 className="section-headline mb-6 font-semibold">
                 [{sectionName}]
             </h2>
-            <h1 className="mb-16 text-4xl leading-12 font-bold tracking-tight text-wrap md:text-5xl xl:max-w-4xl xl:text-6xl xl:leading-16">
+            <h1 className="mb-2 text-4xl leading-12 font-bold tracking-tight text-wrap md:text-5xl xl:max-w-4xl xl:leading-16">
                 {children}
             </h1>
         </>

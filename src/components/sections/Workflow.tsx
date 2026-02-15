@@ -1,10 +1,6 @@
 "use client";
 import { WorkflowHeadline } from "@/data/SectionHeadlines";
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
-import React, { useRef } from "react";
-import { useMediaQuery } from "react-responsive";
-// import { ScrollTrigger } from "gsap/all";
+import React from "react";
 const cards = [
     {
         id: "01",
@@ -27,42 +23,17 @@ const cards = [
         desc: "Gathering insights and feedback to refine our approach, ensuring continuous improvement and alignment with your goals.",
     },
     {
+        id: "05",
+        title: "Ongoing Support",
+        desc: "Our partnership doesn't end with delivery. We provide 3 months of support to ensure your continued success and growth.",
+    },
+    {
         id: "contact",
         title: "Contact Us",
         desc: "Ready to start? Get in touch with us to discuss your project and how we can help you achieve your goals.",
     },
 ];
 const Workflow = () => {
-    const cardsRef = useRef<Array<HTMLDivElement | null>>([]);
-    const isXLScreen = useMediaQuery({ query: "(min-width: 80rem)" });
-
-    useGSAP(() => {
-        if (!isXLScreen) return;
-
-        const tl = gsap.timeline({
-            scrollTrigger: {
-                trigger: "#workflow-section",
-                start: "top top",
-                end: "+=1000",
-                scrub: 1,
-                pin: true,
-            },
-        });
-
-        cardsRef.current.forEach((card, index) => {
-            tl.to(
-                card,
-                {
-                    top: index * -85 + "px",
-                    autoAlpha: 1,
-                    duration: 0.5,
-                    ease: "power2.out",
-                },
-                index * 0.3, // ⏱ Delay per card scroll-wise
-            );
-        });
-    }, []);
-
     return (
         <section className="relative min-h-dvh">
             <WorkflowHeadline />
@@ -72,21 +43,13 @@ const Workflow = () => {
                 }
                 id="workflow-section"
             >
-                <div className="max-h-dvh xl:basis-1/2">
-                    <p className="w-4/5 text-4xl font-bold">
-                        From
-                        <span className="text-cambridge"> ideas</span>→{" "}
-                        <span className="text-cambridge">results.</span>
-                    </p>
-                </div>
                 <div
-                    className="mt-12 w-full space-y-2 xl:relative xl:right-0 xl:left-0 xl:mt-0 xl:h-dvh xl:basis-1/2"
+                    className="mt-12 grid w-full grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3"
                     id="workflow-cards"
                 >
                     {cards.map((card, i: number) => (
                         <WorkflowCard
                             key={i}
-                            ref={(el: any) => (cardsRef.current[i] = el)}
                             title={card.title}
                             desc={card.desc}
                             id={card.id}
@@ -114,23 +77,23 @@ const WorkflowCard = ({
     return (
         <div
             ref={ref}
-            className={`workflow-card relative container mx-auto grid w-full grid-cols-2 grid-rows-2 p-8 xl:grid-cols-3 ${
+            className={`workflow-card relative container mx-auto grid w-full grid-cols-2 grid-rows-2 lg:grid-cols-3 xl:grid-cols-4 ${
                 id === "contact"
                     ? "items-center justify-center bg-black"
-                    : "bg-white"
+                    : "bg-white p-8"
             } h-44 rounded-lg border border-zinc-100 shadow`}
         >
             {id === "contact" ? (
                 <a
                     href="/contact"
-                    className="col-span-full row-span-2 text-center text-3xl font-semibold text-white"
+                    className="relative inset-0 col-span-full row-span-2 text-center text-3xl font-semibold text-white"
                 >
                     {title}
                 </a>
             ) : (
                 <>
                     <p className="text-2xl font-bold text-zinc-600">{id}</p>
-                    <h3 className="col-span-2 mb-4 w-full text-left text-xl font-bold tracking-tight xl:max-w-lg xl:text-2xl">
+                    <h3 className="mb-4 w-full text-left text-xl font-bold tracking-tight lg:col-span-2 xl:col-span-3 xl:max-w-lg">
                         {title}
                     </h3>
                     {/* <p className="text-transparent">This is workflow card</p> */}
