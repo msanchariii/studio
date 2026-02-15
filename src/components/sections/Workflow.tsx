@@ -96,7 +96,6 @@ const WorkflowCard = ({
                     <h3 className="mb-4 w-full text-left text-xl font-bold tracking-tight lg:col-span-2 xl:col-span-3 xl:max-w-lg">
                         {title}
                     </h3>
-                    {/* <p className="text-transparent">This is workflow card</p> */}
                     <p className="col-span-full mt-2 h-8 text-xs font-medium text-zinc-600 xl:max-w-md">
                         {desc}
                     </p>

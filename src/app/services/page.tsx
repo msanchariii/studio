@@ -1,5 +1,3 @@
-// import { title } from "process";
-// "use client";
 import {
     BadgeHelp,
     Bot,

@@ -84,7 +84,6 @@ export default function Hero() {
             />
 
             <div className="relative z-20 mx-auto flex h-full w-full flex-col lg:flex-row" />
-            {/* <div className="bg-cambridge-blue absolute -top-[100%] z-10 size-[150%] rounded-full lg:-top-1/4 lg:-right-1/4 lg:size-[900px]"></div> */}
         </div>
     );
 }

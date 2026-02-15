@@ -1,6 +1,3 @@
-import { sectionDescriptions } from "@/data/globals";
-import SectionHeadlines from "@/data/SectionHeadlines";
-import QuoteForm from "@/components/QuoteForm";
 import ContactPage from "@/components/sections/Contact";
 
 export const metadata = {
@@ -10,7 +7,6 @@ export const metadata = {
 };
 
 const GetAQuotePage = () => {
-    // const [estimatedCost, setEstimatedCost] = useState(0);
     return (
         <>
             <ContactPage />
