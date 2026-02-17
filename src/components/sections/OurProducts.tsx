@@ -107,7 +107,7 @@ export default function WhoWeServe() {
                     <p className="mb-4 font-mono text-sm tracking-wider text-gray-500 uppercase">
                         [Who We Serve]
                     </p>
-                    <h2 className="text-4xl leading-tight font-bold text-gray-900 md:text-5xl lg:text-6xl">
+                    <h2 className="text-3xl leading-tight font-bold text-gray-900 md:text-5xl lg:text-5xl">
                         Built for businesses&nbsp;
                         <span className="text-teal-500">
                             ready to grow
