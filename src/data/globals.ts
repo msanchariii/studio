@@ -94,7 +94,7 @@ export const footerLinks = [
 ];
 
 export const sectionDescriptions = {
-    hero: "We build lightning-fast websites and scalable apps that bring your ideas to life. Small team, big results—custom-crafted solutions that work seamlessly across platforms and devices.",
+    hero: "We design, build, host, and maintain your store — so you can focus on selling, not troubleshooting.  Starting at ₹10,000, fully done for you.",
     about: "We're a tight-knit team of four developers who believe in clean code, purposeful design, and building digital products that are as functional as they are beautiful.",
     ourWork:
         "From sleek landing pages to complex web platforms, we take pride in projects that solve problems, look great, and actually perform. Here’s a peek at what we’ve built.",

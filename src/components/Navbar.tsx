@@ -1,17 +1,24 @@
-import React from "react";
 import Link from "next/link";
+import { Navlink } from "./navbar/Navlink";
+
+const navigation = [
+    { name: "Home", href: "/" },
+    { name: "Services", href: "/services" },
+    { name: "Our Work", href: "/our-work" },
+    { name: "Pricing", href: "/pricing" },
+];
 
 export default function Navbar() {
     return (
-        <nav className="border-b border-gray-200 bg-gray-50">
-            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 xl:px-16">
-                <div className="flex h-16 items-center justify-between">
+        <header className="fixed top-4 right-0 left-0 z-50 px-4 sm:px-6 lg:px-8">
+            <div className="mx-auto max-w-6xl">
+                <div className="flex h-16 items-center justify-between rounded-2xl border border-gray-200/20 bg-white/60 px-6 shadow-lg shadow-gray-900/5 backdrop-blur-md transition-all duration-300 hover:shadow-xl">
                     {/* Logo */}
                     <Link
                         href="/"
-                        className="flex items-center space-x-2 transition-opacity hover:opacity-80"
+                        className="flex items-center space-x-2 transition-all duration-200 hover:scale-105"
                     >
-                        <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-black">
+                        <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-linear-to-br from-gray-800 to-gray-950 shadow-md">
                             <span className="text-lg font-bold text-white">
                                 S
                             </span>
@@ -22,43 +29,22 @@ export default function Navbar() {
                     </Link>
 
                     {/* Navigation Links */}
-                    <div className="hidden items-center space-x-8 md:flex">
-                        <Link
-                            href="/"
-                            className="font-medium text-gray-900 transition-colors hover:text-gray-600"
-                        >
-                            Home
-                        </Link>
-                        <Link
-                            href="/services"
-                            className="font-medium text-gray-600 transition-colors hover:text-gray-900"
-                        >
-                            Services
-                        </Link>
-                        <Link
-                            href="/our-work"
-                            className="font-medium text-gray-600 transition-colors hover:text-gray-900"
-                        >
-                            Our Work
-                        </Link>
-                        <Link
-                            href="/pricing"
-                            className="font-medium text-gray-600 transition-colors hover:text-gray-900"
-                        >
-                            Pricing
-                        </Link>
-                    </div>
+                    <nav className="hidden items-center space-x-2 rounded-full bg-gray-100/60 px-2 py-1.5 backdrop-blur-sm md:flex">
+                        {navigation.map((item) => (
+                            <Navlink key={item.name} item={item} />
+                        ))}
+                    </nav>
 
                     {/* CTA Button */}
                     <Link
                         href="/contact"
-                        className="rounded-lg bg-gradient-to-r from-green-300 to-green-400 px-6 py-2 font-semibold text-gray-900 shadow-sm transition-all duration-200 hover:from-green-400 hover:to-green-500 hover:shadow-md"
+                        className="rounded-xl bg-gradient-to-r from-green-400 to-green-500 px-6 py-2.5 font-semibold text-white shadow-md shadow-green-500/25 transition-all duration-200 hover:scale-105 hover:shadow-lg hover:shadow-green-500/40"
                     >
                         Contact
                     </Link>
 
                     {/* Mobile Menu Button */}
-                    <button className="text-gray-900 hover:text-gray-600 md:hidden">
+                    <button className="rounded-lg p-2 text-gray-900 transition-colors hover:bg-gray-100 md:hidden">
                         <svg
                             className="h-6 w-6"
                             fill="none"
@@ -75,6 +61,6 @@ export default function Navbar() {
                     </button>
                 </div>
             </div>
-        </nav>
+        </header>
     );
 }

@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 
-export default function OurProducts() {
+export default function WhoWeServe() {
     const [openFaq, setOpenFaq] = useState(null);
 
     const services = [
@@ -23,9 +23,10 @@ export default function OurProducts() {
             ),
             iconBg: "bg-green-100",
             iconColor: "text-green-600",
-            title: "Local Shop Online Stores",
+            title: "Instagram & Local Sellers",
+            subtitle: "Selling on Instagram or WhatsApp?",
             description:
-                "Custom e-commerce solutions that help local boutiques and shops sell 24/7 without the tech headache.",
+                "Turn your DMs into a real checkout experience. We build you a store that takes orders, payments, and runs 24/7 — without you lifting a finger.",
         },
         {
             icon: (
@@ -45,9 +46,10 @@ export default function OurProducts() {
             ),
             iconBg: "bg-blue-100",
             iconColor: "text-blue-600",
-            title: "Hotel Booking Websites",
+            title: "Hotel & Stays",
+            subtitle: "Running a Hotel or B&B?",
             description:
-                "Seamless booking engines for boutique hotels and B&Bs. Drive direct reservations and save on commission fees.",
+                "Stop losing bookings to OTAs. We build direct booking websites that save you commission and give guests a seamless reservation experience.",
         },
         {
             icon: (
@@ -67,9 +69,10 @@ export default function OurProducts() {
             ),
             iconBg: "bg-purple-100",
             iconColor: "text-purple-600",
-            title: "Custom Small Business Sites",
+            title: "Small Businesses & Creators",
+            subtitle: "Need a Web Presence?",
             description:
-                "Unique, mobile-first designs crafted in Figma and coded to perfection to reflect your brand's personality.",
+                "From portfolio sites to business landing pages — if you need something that looks great and works perfectly, we build it right.",
         },
     ];
 
@@ -98,18 +101,18 @@ export default function OurProducts() {
 
     return (
         <section className="bg-gray-50 px-4 py-16 sm:px-6 md:py-24 lg:px-8">
-            <div className="mx-auto max-w-7xl">
+            <div className="mx-auto max-w-5xl">
                 {/* Header */}
                 <div className="mb-16">
                     <p className="mb-4 font-mono text-sm tracking-wider text-gray-500 uppercase">
-                        [SERVICES]
+                        [Who We Serve]
                     </p>
                     <h2 className="text-4xl leading-tight font-bold text-gray-900 md:text-5xl lg:text-6xl">
-                        Not just services — we create{" "}
+                        Built for businesses&nbsp;
                         <span className="text-teal-500">
-                            digital experiences
+                            ready to grow
                         </span>{" "}
-                        that convert.
+                        beyond Instagram.
                     </h2>
                 </div>
 

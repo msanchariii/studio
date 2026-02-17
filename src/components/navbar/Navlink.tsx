@@ -1,43 +1,28 @@
 "use client";
+
 import Link from "next/link";
-import React, { useRef } from "react";
-import gsap from "gsap";
-import { useMediaQuery } from "react-responsive";
+import { usePathname } from "next/navigation";
 
-const Navlink = ({ label = "Home", href = "#", className = "" }) => {
-    const labelRef = useRef(null);
-    const isXLScreen = useMediaQuery({ query: "(min-width: 80rem)" });
-
-    const onMouseEnter = () => {
-        if (!isXLScreen) return; // Skip animation on smaller screens
-        gsap.to(labelRef.current, {
-            margin: "0 0.5rem",
-            duration: 0.2,
-        });
+export const Navlink = ({
+    item,
+}: {
+    item: {
+        name: string;
+        href: string;
     };
-
-    const onMouseLeave = () => {
-        if (!isXLScreen) return; // Skip animation on smaller screens
-        gsap.to(labelRef.current, {
-            margin: "0 0.2rem",
-            duration: 0.2,
-        });
-    };
-
+}) => {
+    const pathName = usePathname();
     return (
         <Link
-            href={href}
-            className={`nav-link text-center ${className}`}
-            onMouseEnter={onMouseEnter}
-            onMouseLeave={onMouseLeave}
+            key={item.name}
+            href={item.href}
+            className={`rounded-full px-5 py-2 text-sm font-medium transition-all duration-200 ${
+                item.href === pathName
+                    ? "bg-white text-gray-900 shadow-sm"
+                    : "text-gray-600 hover:bg-white/50 hover:text-gray-900"
+            }`}
         >
-            [
-            <span ref={labelRef} className="nav-label mx-[0.2rem]">
-                {label}
-            </span>
-            ]
+            {item.name}
         </Link>
     );
 };
-
-export default Navlink;

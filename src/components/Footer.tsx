@@ -1,20 +1,20 @@
-import Navlink from "./navbar/Navlink";
+// import Navlink from "./navbar/Navlink";
 import { email, footerLinks, phone, socialLinks } from "@/data/globals";
 
 const Footer = () => (
     <footer className="min-h-[50dvh] rounded-t-2xl bg-[#267b55] px-6 py-8 text-white md:mx-2 md:mb-2 md:rounded-2xl xl:px-12 2xl:px-16">
         <div className="flex justify-between text-xs font-medium text-zinc-200">
             <div className="flex flex-col items-start gap-6 text-zinc-100 lg:flex-row">
-                {footerLinks.map((link) => (
+                {/* {footerLinks.map((link) => (
                     <Navlink
                         key={link.id + "footerLink"}
                         label={link.label}
                         href={link.href}
                     />
-                ))}
+                ))} */}
             </div>
             <div className="flex flex-col items-end gap-6 text-zinc-100 lg:flex-row">
-                {socialLinks.map((social) => {
+                {/* {socialLinks.map((social) => {
                     return (
                         <Navlink
                             key={social.id}
@@ -23,7 +23,7 @@ const Footer = () => (
                             // className="text-zinc-100"
                         />
                     );
-                })}
+                })} */}
             </div>
         </div>
         <div className="flex h-48 items-center justify-start lg:h-64 lg:justify-center">
@@ -57,7 +57,7 @@ const Footer = () => (
                     </div>
                 </div>
                 <div className="flex flex-col items-end lg:flex-row lg:gap-4">
-                    <Navlink
+                    {/* <Navlink
                         label="Privacy Policy"
                         href="#"
                         className="text-xs text-zinc-100"
@@ -66,7 +66,7 @@ const Footer = () => (
                         label="Terms of Service"
                         href="#"
                         className="text-xs text-zinc-100"
-                    />
+                    /> */}
                 </div>
             </div>
         </div>
