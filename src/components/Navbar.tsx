@@ -16,10 +16,7 @@ export default function Navbar() {
             <div className="mx-auto max-w-5xl">
                 <div className="flex h-18 items-center justify-between rounded-2xl border border-gray-200/20 bg-white/60 px-6 shadow-lg shadow-gray-900/5 backdrop-blur-md transition-all duration-300 hover:shadow-xl">
                     {/* Logo */}
-                    <Link
-                        href="/"
-                        className="flex items-center space-x-2 transition-all duration-200 hover:scale-105"
-                    >
+                    <Link href="/" className="flex items-center">
                         <Image
                             src={"/assets/global/logo-full.svg"}
                             alt="SteadFast full logo"
@@ -40,10 +37,10 @@ export default function Navbar() {
                     {/* CTA Button */}
                     <Link
                         href="/contact"
-                        className="flex items-center rounded-full bg-[#306C4D] px-6 py-2.5 font-semibold text-white shadow-md shadow-[#306C4D]/40 transition-all duration-200 hover:scale-105"
+                        className="group flex items-center rounded-full bg-[#306C4D] px-6 py-2.5 font-semibold text-white shadow-md shadow-[#306C4D]/40 transition-all duration-200 hover:scale-105"
                     >
                         Contact{" "}
-                        <ArrowRight className="ml-2 h-5 w-5 rounded-full bg-white stroke-3 p-0.5 text-[#306C4D]" />
+                        <ArrowRight className="ml-2 h-5 w-5 rounded-full bg-white stroke-3 p-0.5 text-[#306C4D] transition-transform duration-200 group-hover:translate-x-1" />
                     </Link>
 
                     {/* Mobile Menu Button */}
