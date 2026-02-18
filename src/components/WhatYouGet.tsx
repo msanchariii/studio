@@ -1,54 +1,70 @@
-import { title } from "process";
 import React from "react";
 
 const WhatYouGet = () => {
     return (
-        <section className="bg-gray-50 px-4 py-16 sm:px-6 md:py-24 lg:px-8">
-            <div className="mx-auto max-w-5xl">
-                {/* Header */}
-                <div className="mb-16">
-                    <p className="mb-4 font-mono text-sm tracking-wider text-gray-500 uppercase">
-                        [What&apos;s Included]
+        <section className="relative overflow-hidden px-4 py-16 sm:px-6 md:py-20 lg:px-8">
+            {/* Background with subtle pattern */}
+            <div className="from-beige to-cambridge-lightest/20 absolute inset-0 bg-gradient-to-br via-white"></div>
+            <div
+                className="absolute inset-0 opacity-[0.03]"
+                style={{
+                    backgroundImage: `radial-gradient(circle at 2px 2px, currentColor 1px, transparent 0)`,
+                    backgroundSize: "32px 32px",
+                }}
+            ></div>
+
+            <div className="relative mx-auto max-w-5xl">
+                {/* Header with accent line */}
+                <div className="mb-12">
+                    <div className="mb-4 flex items-center gap-3">
+                        <div className="bg-brand h-[2px] w-10"></div>
+                        <p className="text-brand font-mono text-xs tracking-[0.3em] uppercase">
+                            What&apos;s Included
+                        </p>
+                    </div>
+                    <h2 className="text-charcoal mb-4 text-3xl leading-tight font-bold md:text-4xl">
+                        Everything you need.
+                        <br />
+                        <span className="text-brand">
+                            Nothing you don&apos;t.
+                        </span>
+                    </h2>
+                    <p className="text-charcoal/70 max-w-2xl text-base leading-relaxed">
+                        Most agencies hand you a website and disappear. We
+                        don&apos;t. Every project we take on includes design,
+                        development, hosting setup, and 2 months of post-launch
+                        support — all under one roof, all for a fixed price. No
+                        hidden costs, no chasing freelancers, no technical
+                        headaches.
                     </p>
                 </div>
 
                 {/* Services Grid */}
-                <div className="mb-24 grid grid-cols-1 gap-6 md:grid-cols-2">
-                    <div>
-                        <h3 className="text-2xl font-bold text-gray-900">
-                            Everything you need. Nothing you don&apos;t
-                        </h3>
-                        <p>
-                            Most agencies hand you a website and disappear. We
-                            don&apos;t. Every project we take on includes
-                            design, development, hosting setup, and 3 months of
-                            post-launch support — all under one roof, all for a
-                            fixed price. No hidden costs, no chasing
-                            freelancers, no technical headaches.
-                        </p>
-                    </div>
-                    <div className="grid grid-cols-2 gap-4">
-                        <ServiceItem
-                            icon={<span className="text-lg">🎨</span>}
-                            title="Custom Design"
-                            description="Figma-crafted, mobile-first design that matches your brand personality — not a template."
-                        />
-                        <ServiceItem
-                            icon={<span className="text-lg">💻</span>}
-                            title="Development"
-                            description="Built to be fast, secure, and scalable. We choose the right technology for your goals, not ours."
-                        />
-                        <ServiceItem
-                            icon={<span className="text-lg">🚀</span>}
-                            title="Hosting Setup"
-                            description="We set up and configure your hosting so your site is live, secure, and loading fast from day one."
-                        />
-                        <ServiceItem
-                            icon={<span className="text-lg">🔧</span>}
-                            title="2 Months Free Support"
-                            description="Bug fixes, content updates, and guidance — included free for 3 months after your site goes live."
-                        />
-                    </div>
+                <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
+                    <ServiceItem
+                        title="Custom Design"
+                        description="Figma-crafted, mobile-first design that matches your brand personality — not a template."
+                        accentColor="brand"
+                        delay="0"
+                    />
+                    <ServiceItem
+                        title="Development"
+                        description="Built to be fast, secure, and scalable. We choose the right technology for your goals, not ours."
+                        accentColor="cambridge"
+                        delay="100"
+                    />
+                    <ServiceItem
+                        title="Hosting Setup"
+                        description="We set up and configure your hosting so your site is live, secure, and loading fast from day one."
+                        accentColor="cambridge-darker"
+                        delay="200"
+                    />
+                    <ServiceItem
+                        title="2 Months Free Support"
+                        description="Bug fixes, content updates, and guidance — included free for 3 months after your site goes live."
+                        accentColor="lavender"
+                        delay="300"
+                    />
                 </div>
             </div>
         </section>
@@ -56,22 +72,71 @@ const WhatYouGet = () => {
 };
 
 const ServiceItem = ({
-    icon,
     title,
     description,
+    accentColor,
+    delay = "0",
+    className = "",
 }: {
-    icon: React.ReactNode;
     title: string;
     description: string;
+    accentColor: string;
+    delay?: string;
+    className?: string;
 }) => {
+    const colorMap: Record<
+        string,
+        { border: string; bg: string; accent: string }
+    > = {
+        brand: {
+            border: "border-brand",
+            bg: "bg-brand/5",
+            accent: "bg-brand",
+        },
+        cambridge: {
+            border: "border-cambridge",
+            bg: "bg-cambridge/5",
+            accent: "bg-cambridge",
+        },
+        "cambridge-darker": {
+            border: "border-cambridge-darker",
+            bg: "bg-cambridge-darker/5",
+            accent: "bg-cambridge-darker",
+        },
+        lavender: {
+            border: "border-lavender",
+            bg: "bg-lavender/5",
+            accent: "bg-lavender",
+        },
+    };
+
+    const colors = colorMap[accentColor] || colorMap.brand;
+
     return (
-        <div className="flex items-start space-x-4 rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
-            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-green-100 text-green-500">
-                {icon}
-            </div>
-            <div>
-                <h4 className="text-lg font-semibold text-gray-900">{title}</h4>
-                <p className="mt-1 text-sm text-gray-600">{description}</p>
+        <div
+            className={`group relative border-l-4 bg-white p-6 shadow-md ${colors.border} transition-all duration-300 hover:-translate-y-1 ${className}`}
+            style={{
+                animationDelay: `${delay}ms`,
+                borderRadius: "0 10px 10px 0",
+            }}
+        >
+            {/* Decorative corner element */}
+            <div
+                className={`absolute top-0 right-0 h-16 w-16 ${colors.bg} rounded-bl-full transition-all duration-300 group-hover:h-20 group-hover:w-20`}
+            ></div>
+
+            <div className="relative">
+                <div className="mb-4 flex justify-end">
+                    <div
+                        className={`h-1 w-10 ${colors.accent} rounded-full transition-all duration-300 group-hover:w-14`}
+                    ></div>
+                </div>
+                <h4 className="text-charcoal mb-2 text-xl leading-tight font-bold">
+                    {title}
+                </h4>
+                <p className="text-charcoal/70 text-sm leading-relaxed">
+                    {description}
+                </p>
             </div>
         </div>
     );

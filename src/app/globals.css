@@ -124,6 +124,11 @@
     --color-cambridge-lightest: #b3ddc7;
     --color-cambridge-darker: #5e957a;
     --color-cambridge-darkest: #47735e;
+    --color-brand: #306c4d;
+    --color-teal: #14b8a6;
+    --color-teal-dark: #0d9488;
+    --color-coral: #f97066;
+    --color-coral-dark: #ef4444;
 }
 
 @layer base {
