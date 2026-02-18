@@ -25,7 +25,7 @@ export default function ContactPage() {
     };
 
     return (
-        <div className="m-4 flex min-h-screen max-w-7xl flex-col overflow-hidden rounded-2xl md:flex-row">
+        <div className="m-4 mx-auto mt-24 flex min-h-screen max-w-5xl flex-col overflow-hidden rounded-2xl md:flex-row">
             {/* Left Side - Branding & Contact Info */}
             <div className="flex w-full flex-col justify-between bg-black p-8 text-white md:w-1/2 md:p-16">
                 <div>
@@ -45,8 +45,8 @@ export default function ContactPage() {
                         Get In Touch
                     </h1>
                     <p className="mb-16 max-w-md text-lg text-gray-300 md:text-xl">
-                        Have questions or ready to start your journey? We'd love
-                        to hear from you.
+                        Have questions or ready to start your journey? We&apos;d
+                        love to hear from you.
                     </p>
 
                     {/* Contact Information */}
@@ -92,8 +92,8 @@ export default function ContactPage() {
                             Send us a message
                         </h2>
                         <p className="text-gray-600">
-                            Fill out the form below and we'll get back to you
-                            soon
+                            Fill out the form below and we&apos;ll get back to
+                            you soon
                         </p>
                     </div>
 
