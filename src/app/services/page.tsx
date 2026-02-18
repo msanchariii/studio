@@ -1,7 +1,6 @@
 import {
     BadgeHelp,
     Bot,
-    Check,
     Database,
     Hammer,
     Instagram,
@@ -126,36 +125,104 @@ const mobileAppServices = [
 
 const ServicesPage = () => {
     return (
-        <section className="bg-beige/10">
-            <div className="mb-32">
-                <h1 className="mb-8 py-8 text-center text-4xl font-semibold text-shadow-sm">
-                    Website Services
-                </h1>
-                <div className="mx-auto grid grid-cols-1 place-items-center gap-4 p-4 md:grid-cols-2 lg:grid-cols-3">
-                    {websiteServices.map((service, index) => (
-                        <ServiceCard key={index} item={service} />
-                    ))}
+        <section className="min-h-screen py-24">
+            <div className="mx-auto max-w-7xl px-4">
+                {/* Header Section */}
+                <div className="mb-20 border-b border-zinc-200 pb-12">
+                    <div className="mb-6 flex items-center gap-3">
+                        <div className="bg-brand h-0.5 w-10"></div>
+                        <p className="text-brand font-mono text-xs tracking-[0.3em] uppercase">
+                            What We Offer
+                        </p>
+                    </div>
+                    <h1 className="text-charcoal mb-6 text-5xl leading-tight font-bold sm:text-6xl md:text-7xl">
+                        Our Services
+                    </h1>
+                    <p className="text-charcoal/70 max-w-2xl text-sm leading-relaxed">
+                        Comprehensive solutions designed to transform your
+                        digital presence and streamline your operations.
+                    </p>
                 </div>
-            </div>
-            <div className="mb-32">
-                <h1 className="mb-8 py-8 text-center text-4xl font-semibold text-shadow-sm">
-                    Mobile App Services
-                </h1>
-                <div className="mx-auto grid grid-cols-1 place-items-center gap-4 p-4 md:grid-cols-2 lg:grid-cols-3">
-                    {mobileAppServices.map((service, index) => (
-                        <ServiceCard key={index} item={service} />
-                    ))}
-                </div>
-            </div>
 
-            <div className="mb-32">
-                <h1 className="mb-8 py-8 text-center text-4xl font-semibold text-shadow-sm">
-                    Automation Services
-                </h1>
-                <div className="mx-auto grid grid-cols-1 place-items-center gap-4 p-4 md:grid-cols-2 lg:grid-cols-3">
-                    {automationServices.map((service, index) => (
-                        <ServiceCard key={index} item={service} />
-                    ))}
+                {/* Website Services */}
+                <div className="mb-24">
+                    <div className="mb-12 flex items-center gap-3">
+                        <div className="bg-teal h-0.5 w-8"></div>
+                        <h2 className="text-charcoal/50 font-mono text-xs tracking-[0.2em] uppercase">
+                            Website Development
+                        </h2>
+                    </div>
+                    <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                        {websiteServices.map((service, index) => (
+                            <ServiceCard
+                                key={index}
+                                item={service}
+                                color="teal"
+                                index={index}
+                            />
+                        ))}
+                    </div>
+                </div>
+
+                {/* Automation Services */}
+                <div className="mb-24">
+                    <div className="mb-12 flex items-center gap-3">
+                        <div className="bg-indigo h-0.5 w-8"></div>
+                        <h2 className="text-charcoal/50 font-mono text-xs tracking-[0.2em] uppercase">
+                            Automation Solutions
+                        </h2>
+                    </div>
+                    <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                        {automationServices.map((service, index) => (
+                            <ServiceCard
+                                key={index}
+                                item={service}
+                                color="indigo"
+                                index={index}
+                            />
+                        ))}
+                    </div>
+                </div>
+
+                {/* Mobile App Services */}
+                <div className="mb-24">
+                    <div className="mb-12 flex items-center gap-3">
+                        <div className="bg-coral h-0.5 w-8"></div>
+                        <h2 className="text-charcoal/50 font-mono text-xs tracking-[0.2em] uppercase">
+                            Mobile Applications
+                        </h2>
+                    </div>
+                    <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                        {mobileAppServices.map((service, index) => (
+                            <ServiceCard
+                                key={index}
+                                item={service}
+                                color="coral"
+                                index={index}
+                            />
+                        ))}
+                    </div>
+                </div>
+
+                {/* CTA Section */}
+                <div className="border-t border-zinc-200 pt-16">
+                    <div className="flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
+                        <div>
+                            <h2 className="text-charcoal mb-3 text-3xl font-bold">
+                                Need a custom solution?
+                            </h2>
+                            <p className="text-charcoal/70 max-w-xl text-sm leading-relaxed">
+                                We can tailor our services to meet your specific
+                                needs. Let&apos;s discuss your project.
+                            </p>
+                        </div>
+                        <a
+                            href="/contact"
+                            className="border-brand text-brand hover:bg-brand inline-block border-2 px-8 py-4 font-semibold transition-all duration-300 hover:text-white"
+                        >
+                            Get in Touch
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -166,7 +233,8 @@ export default ServicesPage;
 
 const ServiceCard = ({
     item,
-    iconStyles,
+    color,
+    index,
 }: {
     item: {
         title: string;
@@ -174,26 +242,107 @@ const ServiceCard = ({
         listItems: string[];
         icon: React.ElementType;
     };
-    iconStyles?: string;
+    color: string;
+    index: number;
 }) => {
     const { icon: IconComponent } = item;
-    return (
-        <div className="mx-auto flex h-full w-full max-w-md flex-col rounded-lg bg-white p-8 shadow">
-            <IconComponent
-                className={`bg-cambridge mb-4 h-10 w-10 rounded-lg p-2 text-white ${iconStyles}`}
-            />
 
-            <h2 className="mb-4 text-lg font-semibold">{item.title}</h2>
-            <p className="mb-4 text-sm font-medium text-black/60">
-                {item.description}
-            </p>
-            <ul className="mt-2 list-none pl-1 text-sm font-medium">
-                {item.listItems.map((listItem, index) => (
-                    <li key={index} className="mb-2">
-                        <Check className="inline text-green-500" /> {listItem}
-                    </li>
-                ))}
-            </ul>
-        </div>
+    const colorSchemes = {
+        teal: {
+            accent: "border-teal",
+            bg: "bg-teal",
+            text: "text-teal",
+            bgLight: "bg-teal/10",
+            dot: "bg-teal/30",
+        },
+        indigo: {
+            accent: "border-indigo",
+            bg: "bg-indigo",
+            text: "text-indigo",
+            bgLight: "bg-indigo/10",
+            dot: "bg-indigo/30",
+        },
+        coral: {
+            accent: "border-coral",
+            bg: "bg-coral",
+            text: "text-coral",
+            bgLight: "bg-coral/10",
+            dot: "bg-coral/30",
+        },
+        lavender: {
+            accent: "border-lavender",
+            bg: "bg-lavender",
+            text: "text-lavender",
+            bgLight: "bg-lavender/10",
+            dot: "bg-lavender/30",
+        },
+        brand: {
+            accent: "border-brand",
+            bg: "bg-brand",
+            text: "text-brand",
+            bgLight: "bg-brand/10",
+            dot: "bg-brand/30",
+        },
+    };
+
+    const scheme = colorSchemes[color as keyof typeof colorSchemes];
+
+    return (
+        <article className="group relative">
+            <div
+                className={`h-full border-l-4 ${scheme.accent} bg-white p-6 shadow-md transition-all duration-300 hover:shadow-lg`}
+            >
+                {/* Number Badge */}
+                <div className="mb-6 flex items-start justify-between">
+                    <div
+                        className={`${scheme.bg} flex h-12 w-12 items-center justify-center text-white shadow-md`}
+                    >
+                        <IconComponent className="h-6 w-6" />
+                    </div>
+                    <div
+                        className={`font-mono text-sm font-bold ${scheme.text}`}
+                    >
+                        {String(index + 1).padStart(2, "0")}
+                    </div>
+                </div>
+
+                {/* Title */}
+                <h3 className="text-charcoal mb-3 text-xl leading-tight font-bold">
+                    {item.title}
+                </h3>
+
+                {/* Description */}
+                <p className="text-charcoal/70 mb-6 text-sm leading-relaxed">
+                    {item.description}
+                </p>
+
+                {/* Features List */}
+                <ul className="space-y-2">
+                    {item.listItems.map((listItem, idx) => (
+                        <li
+                            key={idx}
+                            className="text-charcoal/60 flex items-start gap-2 text-sm"
+                        >
+                            <div
+                                className={`mt-1.5 h-1.5 w-1.5 shrink-0 ${scheme.dot}`}
+                            ></div>
+                            <span>{listItem}</span>
+                        </li>
+                    ))}
+                </ul>
+
+                {/* Decorative corner element */}
+                <div
+                    className={`absolute right-0 bottom-0 h-20 w-20 ${scheme.bgLight} opacity-0 transition-opacity duration-300 group-hover:opacity-100`}
+                >
+                    <div
+                        className={`absolute right-0 bottom-0 h-1 w-10 ${scheme.bg}`}
+                    ></div>
+                    <div
+                        className={`absolute right-0 bottom-0 h-10 w-1 ${scheme.bg}`}
+                    ></div>
+                </div>
+            </div>
+        </article>
     );
 };
