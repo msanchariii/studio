@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { Navlink } from "./navbar/Navlink";
+import Image from "next/image";
+import { ArrowBigRight, ArrowRight } from "lucide-react";
 
 const navigation = [
     { name: "Home", href: "/" },
@@ -11,21 +13,21 @@ const navigation = [
 export default function Navbar() {
     return (
         <header className="fixed top-4 right-0 left-0 z-50 px-4 sm:px-6 lg:px-8">
-            <div className="mx-auto max-w-6xl">
-                <div className="flex h-16 items-center justify-between rounded-2xl border border-gray-200/20 bg-white/60 px-6 shadow-lg shadow-gray-900/5 backdrop-blur-md transition-all duration-300 hover:shadow-xl">
+            <div className="mx-auto max-w-5xl">
+                <div className="flex h-18 items-center justify-between rounded-2xl border border-gray-200/20 bg-white/60 px-6 shadow-lg shadow-gray-900/5 backdrop-blur-md transition-all duration-300 hover:shadow-xl">
                     {/* Logo */}
                     <Link
                         href="/"
                         className="flex items-center space-x-2 transition-all duration-200 hover:scale-105"
                     >
-                        <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-linear-to-br from-gray-800 to-gray-950 shadow-md">
-                            <span className="text-lg font-bold text-white">
-                                S
-                            </span>
-                        </div>
-                        <span className="text-xl font-bold text-gray-900">
-                            SteadFast
-                        </span>
+                        <Image
+                            src={"/assets/global/logo-full.svg"}
+                            alt="SteadFast full logo"
+                            height={128}
+                            width={128}
+                            className="flex items-center justify-center"
+                        ></Image>
+                        <span className="sr-only">SteadFast</span>
                     </Link>
 
                     {/* Navigation Links */}
@@ -38,9 +40,10 @@ export default function Navbar() {
                     {/* CTA Button */}
                     <Link
                         href="/contact"
-                        className="rounded-xl bg-gradient-to-r from-green-400 to-green-500 px-6 py-2.5 font-semibold text-white shadow-md shadow-green-500/25 transition-all duration-200 hover:scale-105 hover:shadow-lg hover:shadow-green-500/40"
+                        className="flex items-center rounded-full bg-[#306C4D] px-6 py-2.5 font-semibold text-white shadow-md shadow-[#306C4D]/40 transition-all duration-200 hover:scale-105"
                     >
-                        Contact
+                        Contact{" "}
+                        <ArrowRight className="ml-2 h-5 w-5 rounded-full bg-white stroke-3 p-0.5 text-[#306C4D]" />
                     </Link>
 
                     {/* Mobile Menu Button */}
