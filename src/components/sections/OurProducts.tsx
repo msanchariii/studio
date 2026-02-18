@@ -101,7 +101,7 @@ export default function WhoWeServe() {
     return (
         <section className="relative px-4 py-16 sm:px-6 md:py-20 lg:px-8">
             {/* Subtle background with pointy pattern */}
-            <div className="bg-beige/20 absolute inset-0">
+            <div className="absolute inset-0">
                 <PointyPattern />
             </div>
 

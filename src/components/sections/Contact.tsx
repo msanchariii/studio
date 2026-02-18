@@ -181,7 +181,7 @@ export default function ContactPage() {
                                 <div className="pt-4">
                                     <button
                                         type="submit"
-                                        className="border-coral bg-coral hover:text-coral/80 border-2 px-8 py-4 font-semibold text-white transition-all duration-300 hover:bg-transparent"
+                                        className="border-brand bg-brand hover:text-brand border-2 px-8 py-4 font-semibold text-white transition-all duration-300 hover:bg-transparent"
                                     >
                                         Send Message
                                     </button>

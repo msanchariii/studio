@@ -1,106 +1,228 @@
 "use client";
 
-import { pricingPlans, whatsIncluded } from "@/data/pricing";
-import gsap from "gsap";
-import { Check, CircleSmall } from "lucide-react";
+import { pricingPlans } from "@/data/pricing";
+import { Check } from "lucide-react";
 import Link from "next/link";
-import React from "react";
 
 const Pricing = () => {
-    const onMouseEnterGetAQuote = () => {
-        gsap.to("#get-quote", {
-            y: -50,
-            ease: "ease.inOut",
-            duration: 0.16,
-        });
-    };
-    const onMouseLeaveGetAQuote = () => {
-        gsap.to("#get-quote", {
-            y: 0,
-            ease: "ease.inOut",
-            duration: 0.16,
-        });
-    };
-
     return (
-        <div className="rounded-3xl bg-white p-8">
-            <div className="space-y-6">
-                <h3 className="mb-3 text-xl font-semibold">Per Project</h3>
-                <p className="text-zinc-600">
-                    Perfect for brands that need a full-service launch, a
-                    one-off redesign, or a focused creative sprint.
-                </p>
-                <h2 className="mb-1 text-3xl font-bold">From Rs. 3000</h2>
-            </div>
-            <div className="flex flex-col gap-4 lg:flex-row lg:justify-between">
-                <div className="mt-8 w-full space-y-4 lg:w-1/2">
-                    <h4 className="mb-8 w-fit rounded-full bg-zinc-200 px-4 py-2 font-medium text-zinc-700">
-                        What&apos;s Included
-                    </h4>
-
-                    <ul className="space-y-3">
-                        {whatsIncluded.map((item, index) => (
-                            <li
-                                key={index}
-                                className="flex items-center gap-2 text-lg text-zinc-600"
-                            >
-                                <Check className="h-6 w-6 text-zinc-800" />
-                                {item}
-                            </li>
-                        ))}
-                    </ul>
-                </div>
-                <div className="mt-8 w-full space-y-4 lg:w-1/2">
-                    <h4 className="mb-8 w-fit rounded-full bg-zinc-200 px-4 py-2 font-medium text-zinc-700">
-                        Popular Services
-                    </h4>
-
-                    <ul className="list-disc space-y-3">
-                        {pricingPlans.map((item, index) => (
-                            <li
-                                key={index}
-                                className="flex flex-row items-center justify-between gap-2 text-xl text-zinc-700"
-                            >
-                                <span className="flex items-center gap-2">
-                                    <CircleSmall
-                                        fill="black"
-                                        stroke="white"
-                                        size={16}
-                                    />
-                                    {item.service}
-                                </span>
-                                <span className="font-semibold text-zinc-500">
-                                    from ₹{item.pricingRupees}
-                                </span>
-                            </li>
-                        ))}
-                    </ul>
-                </div>
-            </div>
-
-            <div className="mt-8 flex flex-col gap-4 text-lg md:flex-row md:items-center md:justify-between">
-                <p className="py-2 text-zinc-600 md:order-2 md:w-fit">
-                    We&apos;ll tailor the quote to your timeline, goals, and
-                    budget.
-                </p>
-                <Link
-                    href={"/get-a-quote"}
-                    onMouseEnter={onMouseEnterGetAQuote}
-                    onMouseLeave={onMouseLeaveGetAQuote}
-                    className="flex h-16 w-full items-center justify-center gap-2 overflow-y-hidden rounded-full bg-black py-4 text-center text-white md:order-1 md:max-w-xs"
-                >
-                    <CircleSmall fill="white" stroke="white" size={16} />
-                    <div
-                        id="get-quote"
-                        className="flex h-22 flex-col space-y-5.5 self-start"
-                    >
-                        <span>Get a Custom Quote</span>
-                        <span>Get a Custom Quote</span>
+        <div className="mx-auto min-h-screen max-w-6xl px-4 py-32">
+            <div className="mx-auto max-w-7xl px-4">
+                {/* Header Section */}
+                <div className="mb-20 border-b border-zinc-200 pb-12">
+                    <div className="mb-6 flex items-center gap-3">
+                        <div className="bg-brand h-0.5 w-10"></div>
+                        <p className="text-brand font-mono text-xs tracking-[0.3em] uppercase">
+                            Transparent Pricing
+                        </p>
                     </div>
-                </Link>
+                    <h1 className="text-charcoal mb-6 text-5xl leading-tight font-bold sm:text-6xl md:text-7xl">
+                        Clear & Honest Pricing
+                    </h1>
+                    <p className="text-charcoal/70 max-w-2xl text-sm leading-relaxed">
+                        No hidden fees, no surprises. Choose the package that
+                        fits your needs or contact us for a custom solution.
+                    </p>
+                </div>
+
+                {/* Pricing Cards Grid */}
+                <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                    {pricingPlans.map((plan, index) => (
+                        <PricingCard key={plan.id} plan={plan} index={index} />
+                    ))}
+                </div>
+
+                {/* Additional Info Section */}
+                <div className="mt-20 border-t border-zinc-200 pt-16">
+                    <div className="grid gap-12 md:grid-cols-2">
+                        <div>
+                            <h3 className="text-charcoal mb-4 text-2xl font-bold">
+                                What&apos;s Included in Every Package
+                            </h3>
+                            <ul className="space-y-3">
+                                <li className="text-charcoal/70 flex items-start gap-3 text-sm">
+                                    <Check className="text-brand mt-0.5 h-5 w-5 shrink-0" />
+                                    <span>Source code ownership</span>
+                                </li>
+                                <li className="text-charcoal/70 flex items-start gap-3 text-sm">
+                                    <Check className="text-brand mt-0.5 h-5 w-5 shrink-0" />
+                                    <span>Post-launch support period</span>
+                                </li>
+                                <li className="text-charcoal/70 flex items-start gap-3 text-sm">
+                                    <Check className="text-brand mt-0.5 h-5 w-5 shrink-0" />
+                                    <span>
+                                        Training on how to use your site
+                                    </span>
+                                </li>
+                                <li className="text-charcoal/70 flex items-start gap-3 text-sm">
+                                    <Check className="text-brand mt-0.5 h-5 w-5 shrink-0" />
+                                    <span>Security best practices</span>
+                                </li>
+                                <li className="text-charcoal/70 flex items-start gap-3 text-sm">
+                                    <Check className="text-brand mt-0.5 h-5 w-5 shrink-0" />
+                                    <span>Google Analytics setup</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 className="text-charcoal mb-4 text-2xl font-bold">
+                                Have Questions?
+                            </h3>
+                            <p className="text-charcoal/70 mb-6 text-sm leading-relaxed">
+                                Not sure which package is right for you? Want to
+                                add custom features? We&apos;re here to help you
+                                find the perfect solution.
+                            </p>
+                            <Link
+                                href="/contact"
+                                className="border-brand text-brand hover:bg-brand inline-block border-2 px-6 py-3 font-semibold transition-all duration-300 hover:text-white"
+                            >
+                                Schedule a Consultation
+                            </Link>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     );
 };
 
 export default Pricing;
+
+const PricingCard = ({
+    plan,
+    index,
+}: {
+    plan: {
+        id: number;
+        name: string;
+        price: number | null;
+        priceUnit?: string;
+        description: string;
+        features: string[];
+        cta: string;
+        ctaLink: string;
+        popular: boolean;
+        color: string;
+    };
+    index: number;
+}) => {
+    const colorSchemes = {
+        teal: {
+            accent: "border-teal",
+            bg: "bg-teal",
+            text: "text-teal",
+            bgLight: "bg-teal/10",
+            button: "border-2 border-teal text-teal hover:bg-teal hover:text-white",
+        },
+        indigo: {
+            accent: "border-indigo",
+            bg: "bg-indigo",
+            text: "text-indigo",
+            bgLight: "bg-indigo/10",
+            button: "border-2 border-indigo text-indigo hover:bg-indigo hover:text-white",
+        },
+        coral: {
+            accent: "border-coral",
+            bg: "bg-coral",
+            text: "text-coral",
+            bgLight: "bg-coral/10",
+            button: "border-2 border-coral text-coral hover:bg-coral hover:text-white",
+        },
+        lavender: {
+            accent: "border-lavender",
+            bg: "bg-lavender",
+            text: "text-lavender",
+            bgLight: "bg-lavender/10",
+            button: "border-2 border-lavender text-lavender hover:bg-lavender hover:text-white",
+        },
+        brand: {
+            accent: "border-brand",
+            bg: "bg-brand",
+            text: "text-brand",
+            bgLight: "bg-brand/10",
+            button: "border-2 border-brand text-brand hover:bg-brand hover:text-white",
+        },
+    };
+
+    const scheme = colorSchemes[plan.color as keyof typeof colorSchemes];
+
+    return (
+        <article
+            className={`group relative flex flex-col ${plan.popular ? "lg:scale-105" : ""}`}
+        >
+            {plan.popular && (
+                <div
+                    className={`absolute -top-4 left-1/2 -translate-x-1/2 ${scheme.bg} px-4 py-1 text-xs font-semibold tracking-wider text-white uppercase shadow-md`}
+                >
+                    Most Popular
+                </div>
+            )}
+
+            <div
+                className={`flex h-full flex-col border-t-4 ${scheme.accent} bg-white p-6 shadow-md transition-all duration-300 hover:shadow-lg ${plan.popular ? "shadow-lg" : ""}`}
+            >
+                {/* Header */}
+                <div className="mb-6">
+                    <div className="mb-4 flex items-start justify-between">
+                        <h3 className="text-charcoal text-2xl font-bold">
+                            {plan.name}
+                        </h3>
+                        <div
+                            className={`font-mono text-sm font-bold ${scheme.text}`}
+                        >
+                            {String(index + 1).padStart(2, "0")}
+                        </div>
+                    </div>
+
+                    <p className="text-charcoal/70 mb-6 text-sm leading-relaxed">
+                        {plan.description}
+                    </p>
+
+                    {/* Price */}
+                    <div className="mb-6">
+                        {plan.price ? (
+                            <div className="flex items-baseline gap-2">
+                                <span className="text-charcoal text-4xl font-bold">
+                                    ₹{plan.price.toLocaleString()}
+                                </span>
+                                {plan.priceUnit && (
+                                    <span className="text-charcoal/60 text-sm">
+                                        /{plan.priceUnit}
+                                    </span>
+                                )}
+                            </div>
+                        ) : (
+                            <span className="text-charcoal text-4xl font-bold">
+                                Custom
+                            </span>
+                        )}
+                    </div>
+                </div>
+
+                {/* Features List */}
+                <ul className="mb-8 grow space-y-3">
+                    {plan.features.map((feature, idx) => (
+                        <li
+                            key={idx}
+                            className="text-charcoal/70 flex items-start gap-3 text-sm"
+                        >
+                            <Check
+                                className={`mt-0.5 h-5 w-5 shrink-0 ${scheme.text}`}
+                            />
+                            <span>{feature}</span>
+                        </li>
+                    ))}
+                </ul>
+
+                {/* CTA Button */}
+                <Link
+                    href={plan.ctaLink}
+                    className={`block py-3 text-center font-semibold transition-all duration-300 ${scheme.button}`}
+                >
+                    {plan.cta}
+                </Link>
+            </div>
+        </article>
+    );
+};
