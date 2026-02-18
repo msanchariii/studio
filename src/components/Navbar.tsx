@@ -1,7 +1,10 @@
+"use client";
+
 import Link from "next/link";
 import { Navlink } from "./navbar/Navlink";
 import Image from "next/image";
-import { ArrowBigRight, ArrowRight } from "lucide-react";
+import { ArrowBigRight, ArrowRight, X, Menu } from "lucide-react";
+import { useState } from "react";
 
 const navigation = [
     { name: "Home", href: "/" },
@@ -11,6 +14,8 @@ const navigation = [
 ];
 
 export default function Navbar() {
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
     return (
         <header className="fixed top-4 right-0 left-0 z-50 px-4 sm:px-6 lg:px-8">
             <div className="mx-auto max-w-5xl">
@@ -37,29 +42,51 @@ export default function Navbar() {
                     {/* CTA Button */}
                     <Link
                         href="/contact"
-                        className="group flex items-center rounded-full bg-[#306C4D] px-6 py-2.5 font-semibold text-white shadow-md shadow-[#306C4D]/40 transition-all duration-200 hover:scale-105"
+                        className="group hidden items-center rounded-full bg-[#306C4D] px-6 py-2.5 font-semibold text-white shadow-md shadow-[#306C4D]/40 transition-all duration-200 hover:scale-105 md:flex"
                     >
                         Contact{" "}
                         <ArrowRight className="ml-2 h-5 w-5 rounded-full bg-white stroke-3 p-0.5 text-[#306C4D] transition-transform duration-200 group-hover:translate-x-1" />
                     </Link>
 
                     {/* Mobile Menu Button */}
-                    <button className="rounded-lg p-2 text-gray-900 transition-colors hover:bg-gray-100 md:hidden">
-                        <svg
-                            className="h-6 w-6"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                        >
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth={2}
-                                d="M4 6h16M4 12h16M4 18h16"
-                            />
-                        </svg>
+                    <button
+                        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                        className="rounded-lg p-2 text-gray-900 transition-colors hover:bg-gray-100 md:hidden"
+                        aria-label="Toggle menu"
+                    >
+                        {mobileMenuOpen ? (
+                            <X className="h-6 w-6" />
+                        ) : (
+                            <Menu className="h-6 w-6" />
+                        )}
                     </button>
                 </div>
+
+                {/* Mobile Menu Panel */}
+                {mobileMenuOpen && (
+                    <div className="mt-2 overflow-hidden rounded-2xl border border-gray-200/20 bg-white/95 shadow-lg backdrop-blur-md md:hidden">
+                        <nav className="flex flex-col p-4">
+                            {navigation.map((item) => (
+                                <Link
+                                    key={item.name}
+                                    href={item.href}
+                                    onClick={() => setMobileMenuOpen(false)}
+                                    className="rounded-lg px-4 py-3 text-sm font-medium text-gray-900 transition-colors hover:bg-gray-100"
+                                >
+                                    {item.name}
+                                </Link>
+                            ))}
+                            <Link
+                                href="/contact"
+                                onClick={() => setMobileMenuOpen(false)}
+                                className="mt-2 flex items-center justify-center rounded-full bg-[#306C4D] px-6 py-3 font-semibold text-white shadow-md shadow-[#306C4D]/40 transition-all duration-200 hover:scale-105"
+                            >
+                                Contact
+                                <ArrowRight className="ml-2 h-5 w-5" />
+                            </Link>
+                        </nav>
+                    </div>
+                )}
             </div>
         </header>
     );
