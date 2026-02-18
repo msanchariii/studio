@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { Navlink } from "./navbar/Navlink";
 import Image from "next/image";
-import { ArrowBigRight, ArrowRight, X, Menu } from "lucide-react";
+import { ArrowRight, X, Menu } from "lucide-react";
 import { useState } from "react";
 
 const navigation = [
