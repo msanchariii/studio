@@ -3,6 +3,7 @@
 import { pricingPlans } from "@/data/pricing";
 import { Check } from "lucide-react";
 import Link from "next/link";
+import PointyPattern from "@/components/PointyPattern";
 
 const Pricing = () => {
     return (
@@ -148,80 +149,86 @@ const PricingCard = ({
     const scheme = colorSchemes[plan.color as keyof typeof colorSchemes];
 
     return (
-        <article
-            className={`group relative flex flex-col ${plan.popular ? "lg:scale-105" : ""}`}
-        >
+        <article className={`group relative flex flex-col`}>
             {plan.popular && (
                 <div
-                    className={`absolute -top-4 left-1/2 -translate-x-1/2 ${scheme.bg} px-4 py-1 text-xs font-semibold tracking-wider text-white uppercase shadow-md`}
+                    className={`absolute -top-4 left-1/2 -translate-x-1/2 ${scheme.bg} px-4 py-1 text-xs font-semibold tracking-wider text-white uppercase`}
                 >
                     Most Popular
                 </div>
             )}
 
             <div
-                className={`flex h-full flex-col border-t-4 ${scheme.accent} bg-white p-6 shadow-md transition-all duration-300 hover:shadow-lg ${plan.popular ? "shadow-lg" : ""}`}
+                className={`relative flex h-full flex-col overflow-hidden border-t-4 border-l-4 ${scheme.accent} bg-white p-6 shadow-md transition-all duration-300 ${plan.popular ? "shadow-lg" : ""}`}
             >
-                {/* Header */}
-                <div className="mb-6">
-                    <div className="mb-4 flex items-start justify-between">
-                        <h3 className="text-charcoal text-2xl font-bold">
-                            {plan.name}
-                        </h3>
-                        <div
-                            className={`font-mono text-sm font-bold ${scheme.text}`}
-                        >
-                            {String(index + 1).padStart(2, "0")}
+                {/* Dotted Background Pattern */}
+                <div className="pointer-events-none absolute inset-0 opacity-5">
+                    <PointyPattern />
+                </div>
+
+                {/* Content */}
+                <div className="relative z-10 flex h-full flex-col">
+                    {/* Header */}
+                    <div className="mb-6">
+                        <div className="mb-4 flex items-start justify-between">
+                            <h3 className="text-charcoal text-2xl font-bold">
+                                {plan.name}
+                            </h3>
+                            <div
+                                className={`font-mono text-sm font-bold ${scheme.text}`}
+                            >
+                                {String(index + 1).padStart(2, "0")}
+                            </div>
+                        </div>
+
+                        <p className="text-charcoal/70 mb-6 text-sm leading-relaxed">
+                            {plan.description}
+                        </p>
+
+                        {/* Price */}
+                        <div className="mb-6">
+                            {plan.price ? (
+                                <div className="flex items-baseline gap-2">
+                                    <span className="text-charcoal text-4xl font-bold">
+                                        ₹{plan.price.toLocaleString()}
+                                    </span>
+                                    {plan.priceUnit && (
+                                        <span className="text-charcoal/60 text-sm">
+                                            /{plan.priceUnit}
+                                        </span>
+                                    )}
+                                </div>
+                            ) : (
+                                <span className="text-charcoal text-4xl font-bold">
+                                    Custom
+                                </span>
+                            )}
                         </div>
                     </div>
 
-                    <p className="text-charcoal/70 mb-6 text-sm leading-relaxed">
-                        {plan.description}
-                    </p>
+                    {/* Features List */}
+                    <ul className="mb-8 grow space-y-3">
+                        {plan.features.map((feature, idx) => (
+                            <li
+                                key={idx}
+                                className="text-charcoal/70 flex items-start gap-3 text-sm"
+                            >
+                                <Check
+                                    className={`mt-0.5 h-5 w-5 shrink-0 ${scheme.text}`}
+                                />
+                                <span>{feature}</span>
+                            </li>
+                        ))}
+                    </ul>
 
-                    {/* Price */}
-                    <div className="mb-6">
-                        {plan.price ? (
-                            <div className="flex items-baseline gap-2">
-                                <span className="text-charcoal text-4xl font-bold">
-                                    ₹{plan.price.toLocaleString()}
-                                </span>
-                                {plan.priceUnit && (
-                                    <span className="text-charcoal/60 text-sm">
-                                        /{plan.priceUnit}
-                                    </span>
-                                )}
-                            </div>
-                        ) : (
-                            <span className="text-charcoal text-4xl font-bold">
-                                Custom
-                            </span>
-                        )}
-                    </div>
+                    {/* CTA Button */}
+                    <Link
+                        href={plan.ctaLink}
+                        className={`block py-3 text-center font-semibold transition-all duration-300 ${scheme.button}`}
+                    >
+                        {plan.cta}
+                    </Link>
                 </div>
-
-                {/* Features List */}
-                <ul className="mb-8 grow space-y-3">
-                    {plan.features.map((feature, idx) => (
-                        <li
-                            key={idx}
-                            className="text-charcoal/70 flex items-start gap-3 text-sm"
-                        >
-                            <Check
-                                className={`mt-0.5 h-5 w-5 shrink-0 ${scheme.text}`}
-                            />
-                            <span>{feature}</span>
-                        </li>
-                    ))}
-                </ul>
-
-                {/* CTA Button */}
-                <Link
-                    href={plan.ctaLink}
-                    className={`block py-3 text-center font-semibold transition-all duration-300 ${scheme.button}`}
-                >
-                    {plan.cta}
-                </Link>
             </div>
         </article>
     );
