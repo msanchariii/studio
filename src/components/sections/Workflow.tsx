@@ -30,7 +30,7 @@ const cards = [
         id: "05",
         title: "Ongoing Support",
         desc: "Our partnership doesn't end with delivery. We provide 3 months of support to ensure your continued success and growth.",
-        color: "brand",
+        color: "indigo",
     },
     {
         id: "contact",
@@ -90,37 +90,50 @@ const WorkflowCard = ({
             numberBg: string;
             numberText: string;
             border: string;
+            borderHover: string;
         }
     > = {
         brand: {
             gradient: "from-brand/10 via-white to-white",
             numberBg: "bg-brand",
             numberText: "text-brand",
-            border: "hover:border-brand",
+            border: "border-brand/20",
+            borderHover: "hover:border-brand/80",
         },
         cambridge: {
             gradient: "from-cambridge/10 via-white to-white",
             numberBg: "bg-cambridge",
             numberText: "text-cambridge",
-            border: "hover:border-cambridge",
+            border: "border-cambridge/20",
+            borderHover: "hover:border-cambridge/80",
         },
         teal: {
             gradient: "from-teal/10 via-white to-white",
             numberBg: "bg-teal",
             numberText: "text-teal",
-            border: "hover:border-teal",
+            border: "border-teal/20",
+            borderHover: "hover:border-teal/80",
         },
         coral: {
             gradient: "from-coral/10 via-white to-white",
             numberBg: "bg-coral",
             numberText: "text-coral",
-            border: "hover:border-coral",
+            border: "border-coral/20",
+            borderHover: "hover:border-coral/80",
         },
         lavender: {
             gradient: "from-lavender/10 via-white to-white",
             numberBg: "bg-lavender",
             numberText: "text-lavender",
-            border: "hover:border-lavender",
+            border: "border-lavender/20",
+            borderHover: "hover:border-lavender/80",
+        },
+        indigo: {
+            gradient: "from-indigo/10 via-white to-white",
+            numberBg: "bg-indigo",
+            numberText: "text-indigo",
+            border: "border-indigo/20",
+            borderHover: "hover:border-indigo/80",
         },
     };
 
@@ -131,8 +144,8 @@ const WorkflowCard = ({
             ref={ref}
             className={`workflow-card group relative container mx-auto grid h-44 w-full grid-cols-2 grid-rows-2 overflow-hidden rounded-xl transition-all duration-300 lg:grid-cols-3 xl:grid-cols-4 ${
                 id === "contact"
-                    ? "from-brand to-brand/80 hover:from-brand/90 hover:to-brand/70 items-center justify-center bg-linear-to-br shadow-lg hover:shadow-2xl"
-                    : `bg-linear-to-br ${colors.gradient} border-2 border-transparent p-8 ${colors.border} shadow-md hover:-translate-y-1 hover:shadow-xl`
+                    ? "from-brand to-brand/80 hover:from-brand/90 hover:to-brand/70 items-center justify-center bg-linear-to-br shadow-lg"
+                    : `bg-linear-to-br ${colors.gradient} border-2 ${colors.border} ${colors.borderHover} p-8 shadow-md hover:-translate-y-1`
             }`}
         >
             {id === "contact" ? (

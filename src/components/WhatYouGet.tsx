@@ -4,7 +4,7 @@ const WhatYouGet = () => {
     return (
         <section className="relative overflow-hidden px-4 py-16 sm:px-6 md:py-20 lg:px-8">
             {/* Background with subtle pattern */}
-            <div className="from-beige to-cambridge-lightest/20 absolute inset-0 bg-gradient-to-br via-white"></div>
+            <div className="from-beige to-cambridge-lightest/20 absolute inset-0 bg-linear-to-br via-white"></div>
             <div
                 className="absolute inset-0 opacity-[0.03]"
                 style={{
@@ -17,7 +17,7 @@ const WhatYouGet = () => {
                 {/* Header with accent line */}
                 <div className="mb-12">
                     <div className="mb-4 flex items-center gap-3">
-                        <div className="bg-brand h-[2px] w-10"></div>
+                        <div className="bg-brand h-0.5 w-10"></div>
                         <p className="text-brand font-mono text-xs tracking-[0.3em] uppercase">
                             What&apos;s Included
                         </p>
