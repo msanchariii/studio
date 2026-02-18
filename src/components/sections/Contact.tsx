@@ -25,167 +25,170 @@ export default function ContactPage() {
     };
 
     return (
-        <div className="m-4 mx-auto mt-24 flex min-h-screen max-w-5xl flex-col overflow-hidden rounded-2xl md:flex-row">
-            {/* Left Side - Branding & Contact Info */}
-            <div className="flex w-full flex-col justify-between bg-black p-8 text-white md:w-1/2 md:p-16">
-                <div>
-                    {/* Logo */}
-                    <div className="mb-16 flex h-12 w-12 items-center justify-center rounded-xl bg-orange-500">
-                        <svg
-                            className="h-8 w-8 text-white"
-                            fill="currentColor"
-                            viewBox="0 0 24 24"
-                        >
-                            <path d="M14.5 4.5c-1.5 0-2.7 1-3.2 2.4-.5-1.4-1.7-2.4-3.2-2.4-1.9 0-3.4 1.5-3.4 3.4 0 2.5 2.5 4.5 6.6 8.3 4.1-3.8 6.6-5.8 6.6-8.3 0-1.9-1.5-3.4-3.4-3.4z" />
-                        </svg>
-                    </div>
-
-                    {/* Main Heading */}
-                    <h1 className="mb-6 text-5xl leading-tight font-bold md:text-6xl">
-                        Get In Touch
-                    </h1>
-                    <p className="mb-16 max-w-md text-lg text-gray-300 md:text-xl">
-                        Have questions or ready to start your journey? We&apos;d
-                        love to hear from you.
-                    </p>
-
-                    {/* Contact Information */}
-                    <div className="space-y-8">
-                        <div>
-                            <h3 className="mb-2 text-sm font-semibold text-gray-400">
-                                EMAIL
-                            </h3>
-                            <a
-                                href="mailto:hello@steadfaststudio.in"
-                                className="text-xl transition-colors hover:text-orange-500"
-                            >
-                                hello@steadfaststudio.in
-                            </a>
-                        </div>
-                        <div>
-                            <h3 className="mb-2 text-sm font-semibold text-gray-400">
-                                PHONE
-                            </h3>
-                            <a
-                                href="tel:+919239505770"
-                                className="text-xl transition-colors hover:text-orange-500"
-                            >
-                                +91 9239505770
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                {/* Footer */}
-                <div className="mt-16">
-                    <p className="text-sm text-gray-500">
-                        © 2025 Steadfast. All rights reserved.
-                    </p>
-                </div>
-            </div>
-
-            {/* Right Side - Contact Form */}
-            <div className="flex w-full items-center justify-center bg-gray-50 p-8 md:w-1/2 md:p-16">
-                <div className="w-full max-w-md">
-                    <div className="mb-8">
-                        <h2 className="mb-2 text-3xl font-bold text-gray-900">
-                            Send us a message
-                        </h2>
-                        <p className="text-gray-600">
-                            Fill out the form below and we&apos;ll get back to
-                            you soon
+        <div className="min-h-screen py-32">
+            <div className="mx-auto max-w-5xl px-4">
+                {/* Header Section */}
+                <div className="mb-16 border-b border-zinc-200 pb-12">
+                    <div className="mb-6 flex items-center gap-3">
+                        <div className="bg-brand h-0.5 w-10"></div>
+                        <p className="text-brand font-mono text-xs tracking-[0.3em] uppercase">
+                            Get In Touch
                         </p>
                     </div>
+                    <h1 className="text-charcoal text-5xl leading-tight font-bold sm:text-6xl md:text-7xl">
+                        Let&apos;s Work Together
+                    </h1>
+                </div>
 
-                    <form onSubmit={handleSubmit} className="space-y-6">
-                        {/* Name Field */}
-                        <div>
-                            <label
-                                htmlFor="name"
-                                className="mb-2 block text-sm font-semibold text-gray-900"
-                            >
-                                Name
-                            </label>
-                            <input
-                                type="text"
-                                id="name"
-                                name="name"
-                                value={formData.name}
-                                onChange={handleChange}
-                                placeholder="John Doe"
-                                className="w-full rounded-lg border border-gray-300 px-4 py-3 transition-all outline-none focus:border-transparent focus:ring-2 focus:ring-orange-500"
-                                required
-                            />
+                <div className="grid gap-16 lg:grid-cols-5 lg:gap-20">
+                    {/* Contact Information - Left Side */}
+                    <div className="lg:col-span-2">
+                        <div className="space-y-12">
+                            <div>
+                                <p className="text-charcoal/70 mb-8 text-sm leading-relaxed">
+                                    Have a project in mind? We&apos;d love to
+                                    hear about it. Fill out the form or reach
+                                    out directly.
+                                </p>
+                            </div>
+
+                            {/* Contact Details */}
+                            <div className="space-y-8">
+                                <div className="border-brand border-l-2 pl-4">
+                                    <h3 className="text-charcoal/50 mb-2 font-mono text-xs tracking-wider uppercase">
+                                        Email
+                                    </h3>
+                                    <a
+                                        href="mailto:hello@steadfaststudio.in"
+                                        className="text-charcoal hover:text-brand text-lg font-medium transition-colors"
+                                    >
+                                        hello@steadfaststudio.in
+                                    </a>
+                                </div>
+
+                                <div className="border-teal border-l-2 pl-4">
+                                    <h3 className="text-charcoal/50 mb-2 font-mono text-xs tracking-wider uppercase">
+                                        Phone
+                                    </h3>
+                                    <a
+                                        href="tel:+919239505770"
+                                        className="text-charcoal hover:text-teal text-lg font-medium transition-colors"
+                                    >
+                                        +91 9239505770
+                                    </a>
+                                </div>
+                            </div>
+
+                            {/* Additional Info */}
+                            <div className="border-t border-zinc-200 pt-8">
+                                <h3 className="text-charcoal mb-4 text-sm font-semibold">
+                                    Response Time
+                                </h3>
+                                <p className="text-charcoal/70 text-sm leading-relaxed">
+                                    We typically respond within 24 hours on
+                                    business days. For urgent inquiries, please
+                                    call us directly.
+                                </p>
+                            </div>
                         </div>
+                    </div>
 
-                        {/* Email Field */}
-                        <div>
-                            <label
-                                htmlFor="email"
-                                className="mb-2 block text-sm font-semibold text-gray-900"
-                            >
-                                Email
-                            </label>
-                            <input
-                                type="email"
-                                id="email"
-                                name="email"
-                                value={formData.email}
-                                onChange={handleChange}
-                                placeholder="johndoe@gmail.com"
-                                className="w-full rounded-lg border border-gray-300 px-4 py-3 transition-all outline-none focus:border-transparent focus:ring-2 focus:ring-orange-500"
-                                required
-                            />
+                    {/* Contact Form - Right Side */}
+                    <div className="lg:col-span-3">
+                        <div className="border-coral border-l-4 bg-white p-8 md:p-12">
+                            <form onSubmit={handleSubmit} className="space-y-6">
+                                {/* Name Field */}
+                                <div>
+                                    <label
+                                        htmlFor="name"
+                                        className="text-charcoal mb-2 block text-sm font-semibold"
+                                    >
+                                        Name
+                                    </label>
+                                    <input
+                                        type="text"
+                                        id="name"
+                                        name="name"
+                                        value={formData.name}
+                                        onChange={handleChange}
+                                        placeholder="John Doe"
+                                        className="text-charcoal focus:border-brand w-full border-b-2 border-zinc-200 bg-transparent px-0 py-3 transition-colors outline-none"
+                                        required
+                                    />
+                                </div>
+
+                                {/* Email Field */}
+                                <div>
+                                    <label
+                                        htmlFor="email"
+                                        className="text-charcoal mb-2 block text-sm font-semibold"
+                                    >
+                                        Email
+                                    </label>
+                                    <input
+                                        type="email"
+                                        id="email"
+                                        name="email"
+                                        value={formData.email}
+                                        onChange={handleChange}
+                                        placeholder="john@example.com"
+                                        className="text-charcoal focus:border-brand w-full border-b-2 border-zinc-200 bg-transparent px-0 py-3 transition-colors outline-none"
+                                        required
+                                    />
+                                </div>
+
+                                {/* Phone Field */}
+                                <div>
+                                    <label
+                                        htmlFor="phone"
+                                        className="text-charcoal mb-2 block text-sm font-semibold"
+                                    >
+                                        Phone
+                                    </label>
+                                    <input
+                                        type="tel"
+                                        id="phone"
+                                        name="phone"
+                                        value={formData.phone}
+                                        onChange={handleChange}
+                                        placeholder="+91 9876543210"
+                                        className="text-charcoal focus:border-brand w-full border-b-2 border-zinc-200 bg-transparent px-0 py-3 transition-colors outline-none"
+                                        required
+                                    />
+                                </div>
+
+                                {/* Message Field */}
+                                <div>
+                                    <label
+                                        htmlFor="description"
+                                        className="text-charcoal mb-2 block text-sm font-semibold"
+                                    >
+                                        Message
+                                    </label>
+                                    <textarea
+                                        id="description"
+                                        name="description"
+                                        value={formData.description}
+                                        onChange={handleChange}
+                                        placeholder="Tell us about your project..."
+                                        rows={6}
+                                        className="text-charcoal focus:border-brand w-full resize-none border-b-2 border-zinc-200 bg-transparent px-0 py-3 transition-colors outline-none"
+                                        required
+                                    />
+                                </div>
+
+                                {/* Submit Button */}
+                                <div className="pt-4">
+                                    <button
+                                        type="submit"
+                                        className="border-coral bg-coral hover:text-coral/80 border-2 px-8 py-4 font-semibold text-white transition-all duration-300 hover:bg-transparent"
+                                    >
+                                        Send Message
+                                    </button>
+                                </div>
+                            </form>
                         </div>
-
-                        {/* Phone Field */}
-                        <div>
-                            <label
-                                htmlFor="phone"
-                                className="mb-2 block text-sm font-semibold text-gray-900"
-                            >
-                                Phone
-                            </label>
-                            <input
-                                type="tel"
-                                id="phone"
-                                name="phone"
-                                value={formData.phone}
-                                onChange={handleChange}
-                                placeholder="+1 (123) 456-7890"
-                                className="w-full rounded-lg border border-gray-300 px-4 py-3 transition-all outline-none focus:border-transparent focus:ring-2 focus:ring-orange-500"
-                                required
-                            />
-                        </div>
-
-                        {/* Description Field */}
-                        <div>
-                            <label
-                                htmlFor="description"
-                                className="mb-2 block text-sm font-semibold text-gray-900"
-                            >
-                                Message
-                            </label>
-                            <textarea
-                                id="description"
-                                name="description"
-                                value={formData.description}
-                                onChange={handleChange}
-                                placeholder="Tell us about your inquiry..."
-                                rows={5}
-                                className="w-full resize-none rounded-lg border border-gray-300 px-4 py-3 transition-all outline-none focus:border-transparent focus:ring-2 focus:ring-orange-500"
-                                required
-                            />
-                        </div>
-
-                        {/* Submit Button */}
-                        <button
-                            type="submit"
-                            className="w-full rounded-full bg-black py-4 text-lg font-semibold text-white transition-colors duration-200 hover:bg-gray-800"
-                        >
-                            Send Message
-                        </button>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
