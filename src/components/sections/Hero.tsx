@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export default function Hero() {
     return (
-        <div className="border-cambridge-blue/20 bg-beige/20 relative m-0 flex min-h-screen flex-col overflow-hidden bg-[url(/bg.svg)] bg-contain p-12 lg:p-16 lg:py-32">
+        <div className="border-cambridge-blue/20 bg-beige/20 relative m-0 flex min-h-screen flex-col overflow-hidden bg-[url(/bg.svg)] bg-contain p-12 py-32 lg:p-16">
             <div className="text-center">
                 <h1 className="mb-4 text-6xl font-medium">SteadFast Studio</h1>
                 <p className="mx-auto mb-8 max-w-2xl">
