@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export default function Hero() {
     return (
-        <div className="border-cambridge-blue/20 bg-beige/20 relative m-0 flex min-h-screen flex-col overflow-hidden bg-[url(/bg.svg)] bg-contain px-4 pt-32 sm:px-6 lg:px-8">
+        <div className="border-cambridge-blue/20 bg-beige/20 relative m-0 flex min-h-screen flex-col overflow-hidden bg-[url(/bg.svg)] bg-contain px-4 py-32 sm:px-6 lg:px-8">
             <div className="text-center">
                 <h1 className="mb-4 text-6xl font-medium">SteadFast Studio</h1>
                 <p className="mx-auto mb-8 max-w-2xl">
@@ -16,7 +16,7 @@ export default function Hero() {
                     <Calendly />
                     <Link
                         href="/contact"
-                        className="flex items-center justify-center rounded-full border-2 border-black bg-transparent px-4 py-2 text-black transition-colors hover:bg-black hover:text-white"
+                        className="flex items-center justify-center rounded-full border-2 border-black bg-transparent px-4 py-2 text-black transition-all duration-200 hover:bg-black hover:text-white"
                     >
                         Contact
                     </Link>
@@ -24,14 +24,12 @@ export default function Hero() {
             </div>
 
             <Image
-                src={"/sample.png"}
+                src="/sample.png"
                 alt="hero image"
                 height={700}
                 width={700}
                 className="mx-auto w-full max-w-3xl rounded-xl bg-white"
             />
-
-            <div className="relative z-20 mx-auto flex h-full w-full flex-col lg:flex-row" />
         </div>
     );
 }
