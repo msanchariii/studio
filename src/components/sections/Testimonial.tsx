@@ -12,7 +12,7 @@ const Testimonial: React.FC = () => {
     };
 
     return (
-        <section className="bg-white py-24">
+        <section className="bg-white py-32">
             <div className="mx-auto max-w-7xl px-4">
                 {/* Header Section */}
                 <div className="mb-16">
@@ -41,9 +41,9 @@ const Testimonial: React.FC = () => {
                         return (
                             <article
                                 key={`${testimonial.name}-${index}`}
-                                className={`border-l-4 ${borderClass} bg-white p-6 shadow-md transition-shadow duration-300 hover:shadow-lg`}
+                                className={`flex flex-col border-t-4 border-l-4 ${borderClass} bg-white p-6 shadow-md transition-shadow duration-300 hover:shadow-lg`}
                             >
-                                <div className="mb-4">
+                                <div className="mb-4 grow">
                                     <p className="text-charcoal/80 mb-4 text-sm leading-relaxed">
                                         &quot;{testimonial.testimonial}&quot;
                                     </p>

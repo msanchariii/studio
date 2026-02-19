@@ -23,7 +23,7 @@ export const WorkflowHeadline = () => {
     return (
         <SectionHeadlines sectionName="Workflow">
             No guesswork. Just a clear, proven{" "}
-            <span className="text-cambridge">process</span> that works.
+            <span className="text-coral">process</span> that works.
         </SectionHeadlines>
     );
 };

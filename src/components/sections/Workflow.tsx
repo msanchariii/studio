@@ -42,10 +42,30 @@ const cards = [
 const Workflow = () => {
     return (
         <section className="relative min-h-dvh px-4 sm:px-6 lg:px-8">
-            <WorkflowHeadline />
+            <div className="mb-2">
+                <div className="mb-6 flex items-center gap-3">
+                    <div className="bg-brand h-0.5 w-10"></div>
+                    <p className="text-brand font-mono text-xs tracking-[0.3em] uppercase">
+                        Workflow
+                    </p>
+                </div>
+                <h2 className="text-charcoal mb-4 text-4xl leading-tight font-bold md:text-5xl">
+                    No guesswork. Just a clear, proven{" "}
+                    <span className="text-coral">
+                        process that clearly works
+                    </span>
+                </h2>
+                <p className="text-charcoal/70 max-w-2xl text-sm leading-relaxed">
+                    Our step-by-step approach ensures your project is on the
+                    right track from day one. We break down the entire process
+                    into clear, manageable phases, so you always know what to
+                    expect and when. No surprises, just results.
+                </p>
+            </div>
+            {/* <WorkflowHeadline /> */}
             <div
                 className={
-                    "relative mx-auto mt-16 flex max-w-7xl flex-col items-start justify-between rounded-lg pt-10 xl:flex-row"
+                    "relative mx-auto flex max-w-7xl flex-col items-start justify-between rounded-lg pt-10 xl:flex-row"
                 }
                 id="workflow-section"
             >
@@ -151,7 +171,7 @@ const WorkflowCard = ({
             {id === "contact" ? (
                 <a
                     href="/contact"
-                    className="relative inset-0 col-span-full row-span-2 flex items-center justify-center text-center text-3xl font-semibold text-white"
+                    className="absolute inset-0 col-span-full row-span-2 flex items-center justify-center text-center text-3xl font-semibold text-white"
                 >
                     <span>{title}</span>
                 </a>

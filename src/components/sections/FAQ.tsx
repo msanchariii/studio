@@ -25,7 +25,10 @@ const FAQ = () => {
     }, []);
 
     return (
-        <section className="relative px-4 sm:px-6 lg:px-8" id="faq-section">
+        <section
+            className="relative px-4 pt-12 pb-24 sm:px-6 lg:px-8"
+            id="faq-section"
+        >
             <div className="mx-auto max-w-3xl">
                 <h3 className="text-charcoal mb-6 text-2xl font-bold">
                     Common Questions

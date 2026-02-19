@@ -25,7 +25,7 @@ const WhatYouGet = () => {
                     <h2 className="text-charcoal mb-4 text-3xl leading-tight font-bold md:text-4xl">
                         Everything you need.
                         <br />
-                        <span className="text-brand">
+                        <span className="text-teal">
                             Nothing you don&apos;t.
                         </span>
                     </h2>
@@ -50,13 +50,13 @@ const WhatYouGet = () => {
                     <ServiceItem
                         title="Development"
                         description="Built to be fast, secure, and scalable. We choose the right technology for your goals, not ours."
-                        accentColor="cambridge"
+                        accentColor="coral"
                         delay="100"
                     />
                     <ServiceItem
                         title="Hosting Setup"
                         description="We set up and configure your hosting so your site is live, secure, and loading fast from day one."
-                        accentColor="cambridge-darker"
+                        accentColor="indigo"
                         delay="200"
                     />
                     <ServiceItem
@@ -107,6 +107,16 @@ const ServiceItem = ({
             border: "border-lavender",
             bg: "bg-lavender/5",
             accent: "bg-lavender",
+        },
+        coral: {
+            border: "border-coral",
+            bg: "bg-coral/5",
+            accent: "bg-coral",
+        },
+        indigo: {
+            border: "border-indigo",
+            bg: "bg-indigo/5",
+            accent: "bg-indigo",
         },
     };
 
