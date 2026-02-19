@@ -1,5 +1,6 @@
 import { email, footerLinks, phone, socialLinks } from "@/data/globals";
 import PointyPattern from "./PointyPattern";
+import Image from "next/image";
 
 const Footer = () => (
     <footer className="bg-brand relative min-h-[60dvh] overflow-hidden rounded-t-3xl px-6 py-12 text-white md:mx-2 md:mb-2 md:rounded-3xl xl:px-12 2xl:px-16">
@@ -13,11 +14,13 @@ const Footer = () => (
             <div className="mb-16 flex flex-col justify-between gap-8 lg:flex-row lg:items-start">
                 {/* Logo */}
                 <div className="flex flex-col gap-6">
-                    <div className="flex h-16 w-16 items-center justify-center rounded-xl bg-white/10 backdrop-blur-sm">
-                        <img
-                            src={"/assets/global/logo-dark.svg"}
+                    <div className="flex h-16 w-16 items-center justify-center rounded bg-white/40 backdrop-blur-sm">
+                        <Image
+                            src={"/assets/global/logo.svg"}
                             alt="Logo"
                             className="h-12 w-12"
+                            height={128}
+                            width={128}
                         />
                     </div>
                     <p className="max-w-sm text-sm leading-relaxed text-white/80">
@@ -100,7 +103,7 @@ const Footer = () => (
 
                 {/* Legal Links */}
                 <div className="flex flex-col gap-2 text-xs text-white/60 sm:flex-row sm:gap-6">
-                    <span>© 2024 Steadfast. All rights reserved.</span>
+                    <span>© 2026 Steadfast. All rights reserved.</span>
                     <a
                         href="#"
                         className="transition-colors hover:text-white/80"

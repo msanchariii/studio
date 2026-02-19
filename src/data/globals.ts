@@ -72,7 +72,7 @@ export const socialLinks = [
     },
 ];
 
-export const email = "hello@steadfastweb.studio";
+export const email = "hello@steadfaststudio.in";
 export const phone = "+91 9239505770";
 
 export const navbarLinks = [
