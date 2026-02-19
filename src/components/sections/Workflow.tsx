@@ -41,11 +41,11 @@ const cards = [
 ];
 const Workflow = () => {
     return (
-        <section className="relative min-h-dvh">
+        <section className="relative min-h-dvh px-4 sm:px-6 lg:px-8">
             <WorkflowHeadline />
             <div
                 className={
-                    "relative container mx-auto mt-16 flex flex-col items-start justify-between rounded-lg pt-10 xl:flex-row"
+                    "relative mx-auto mt-16 flex max-w-7xl flex-col items-start justify-between rounded-lg pt-10 xl:flex-row"
                 }
                 id="workflow-section"
             >
@@ -142,7 +142,7 @@ const WorkflowCard = ({
     return (
         <div
             ref={ref}
-            className={`workflow-card group relative container mx-auto grid h-44 w-full grid-cols-2 grid-rows-2 overflow-hidden rounded-xl transition-all duration-300 lg:grid-cols-3 xl:grid-cols-4 ${
+            className={`workflow-card group relative container mx-auto grid h-44 w-full grid-cols-3 grid-rows-2 overflow-hidden rounded-xl transition-all duration-300 lg:grid-cols-3 xl:grid-cols-4 ${
                 id === "contact"
                     ? "from-brand to-brand/80 hover:from-brand/90 hover:to-brand/70 items-center justify-center bg-linear-to-br shadow-lg"
                     : `bg-linear-to-br ${colors.gradient} border-2 ${colors.border} ${colors.borderHover} p-8 shadow-md hover:-translate-y-1`
@@ -172,7 +172,7 @@ const WorkflowCard = ({
                     ></div>
 
                     <h3
-                        className={`mb-4 w-full text-left text-xl font-bold tracking-tight lg:col-span-2 xl:col-span-3 xl:max-w-lg ${colors.numberText} relative z-10`}
+                        className={`col-span-2 mb-4 flex h-full w-full items-center text-left text-xl font-bold tracking-tight xl:col-span-3 xl:max-w-lg ${colors.numberText} relative z-10`}
                     >
                         {title}
                     </h3>

@@ -12,7 +12,7 @@ export const metadata = {
 
 const WorkPage = () => {
     return (
-        <section className="relative min-h-screen py-24">
+        <section className="relative min-h-screen px-4 py-24 lg:px-8">
             <div className="relative">
                 {/* Header Section */}
                 <div className="mb-20 border-b border-zinc-200 pt-8 pb-12">

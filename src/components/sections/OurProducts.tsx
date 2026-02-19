@@ -1,103 +1,7 @@
-"use client";
-import { useState } from "react";
 import PointyPattern from "@/components/PointyPattern";
 import PointyWave from "@/components/PointyWave";
 
 export default function WhoWeServe() {
-    const [openFaq, setOpenFaq] = useState(null);
-
-    const services = [
-        {
-            color: "teal",
-            colorHex: "#14b8a6",
-            accentColor: "bg-teal",
-            textColor: "text-teal",
-            borderColor: "border-teal/30",
-            title: "Instagram & Local Sellers",
-            subtitle: "Selling on Instagram or WhatsApp?",
-            description:
-                "Turn your DMs into a real checkout experience. We build you a store that takes orders, payments, and runs 24/7 — without you lifting a finger.",
-        },
-        {
-            color: "indigo",
-            colorHex: "#6366f1",
-            accentColor: "bg-indigo",
-            textColor: "text-indigo",
-            borderColor: "border-indigo/30",
-            title: "Hotel & Stays",
-            subtitle: "Running a Hotel or B&B?",
-            description:
-                "Stop losing bookings to OTAs. We build direct booking websites that save you commission and give guests a seamless reservation experience.",
-        },
-        {
-            color: "coral",
-            colorHex: "#f97066",
-            accentColor: "bg-coral",
-            textColor: "text-coral",
-            borderColor: "border-coral/30",
-            title: "Small Businesses & Creators",
-            subtitle: "Need a Web Presence?",
-            description:
-                "From portfolio sites to business landing pages — if you need something that looks great and works perfectly, we build it right.",
-        },
-        {
-            color: "lavender",
-            colorHex: "#ba9ad3",
-            accentColor: "bg-lavender",
-            textColor: "text-lavender",
-            borderColor: "border-lavender/30",
-            title: "Restaurants & Cafés",
-            subtitle: "Want online orders without fees?",
-            description:
-                "Stop paying commissions to delivery apps. We build custom ordering systems that put profit back in your pocket and give you full control.",
-        },
-        {
-            color: "brand",
-            colorHex: "#306c4d",
-            accentColor: "bg-brand",
-            textColor: "text-brand",
-            borderColor: "border-brand/30",
-            title: "Service Providers",
-            subtitle: "Consultants, Coaches & Agencies?",
-            description:
-                "Book meetings, showcase your work, and capture leads without the hassle. We build sites that turn visitors into clients.",
-        },
-        {
-            color: "cambridge",
-            colorHex: "#77ba99",
-            accentColor: "bg-cambridge",
-            textColor: "text-cambridge",
-            borderColor: "border-cambridge/30",
-            title: "Event & Workshop Hosts",
-            subtitle: "Hosting events or workshops?",
-            description:
-                "Sell tickets, manage registrations, and promote your events — all in one place. No middleman, no confusion, just streamlined bookings.",
-        },
-    ];
-
-    const faqs = [
-        {
-            question: "What's your typical delivery timeline?",
-            answer: "Most projects are completed within 4-6 weeks, depending on complexity and scope. We'll provide a detailed timeline during our initial consultation.",
-        },
-        {
-            question: "How do we stay in touch during the project?",
-            answer: "We use a combination of weekly video calls, Slack for quick updates, and a shared project management board so you're always in the loop on progress.",
-        },
-        {
-            question: "Do you offer refunds?",
-            answer: "We offer a satisfaction guarantee for the first milestone. If you're not happy with the initial design concepts, we'll refund your deposit minus any work completed.",
-        },
-        {
-            question: "What tech stack do you use?",
-            answer: "We primarily work with Next.js, React, and Tailwind CSS for frontend, with Node.js and various databases on the backend. We choose the best tools for your specific needs.",
-        },
-    ];
-
-    const toggleFaq = (index: any) => {
-        setOpenFaq(openFaq === index ? null : index);
-    };
-
     return (
         <section className="relative px-4 py-16 sm:px-6 md:py-20 lg:px-8">
             {/* Subtle background with pointy pattern */}
@@ -188,71 +92,75 @@ export default function WhoWeServe() {
                 </div>
 
                 {/* FAQ Section */}
-                <div className="mx-auto max-w-3xl">
-                    <h3 className="text-charcoal mb-6 text-2xl font-bold">
-                        Common Questions
-                    </h3>
-                    <div className="space-y-3">
-                        {faqs.map((faq, index) => (
-                            <div
-                                key={index}
-                                className={`overflow-hidden border-l-4 bg-white transition-all duration-200 ${
-                                    openFaq === index
-                                        ? "border-brand shadow-md"
-                                        : "border-transparent shadow-md"
-                                }`}
-                                style={{ borderRadius: "0 8px 8px 0" }}
-                            >
-                                <button
-                                    onClick={() => toggleFaq(index)}
-                                    className="flex w-full items-center justify-between px-6 py-4 text-left transition-colors hover:bg-gray-50"
-                                >
-                                    <span className="text-charcoal text-base font-semibold md:text-base">
-                                        {faq.question}
-                                    </span>
-                                    <div
-                                        className={`ml-4 flex h-6 w-6 shrink-0 items-center justify-center rounded-full transition-all duration-200 ${
-                                            openFaq === index
-                                                ? "bg-brand rotate-180"
-                                                : "bg-gray-200"
-                                        }`}
-                                    >
-                                        <svg
-                                            className={`h-4 w-4 transition-colors ${
-                                                openFaq === index
-                                                    ? "text-white"
-                                                    : "text-gray-600"
-                                            }`}
-                                            fill="none"
-                                            stroke="currentColor"
-                                            viewBox="0 0 24 24"
-                                        >
-                                            <path
-                                                strokeLinecap="round"
-                                                strokeLinejoin="round"
-                                                strokeWidth={2}
-                                                d="M19 9l-7 7-7-7"
-                                            />
-                                        </svg>
-                                    </div>
-                                </button>
-
-                                <div
-                                    className={`overflow-hidden transition-all duration-200 ${
-                                        openFaq === index
-                                            ? "max-h-96"
-                                            : "max-h-0"
-                                    }`}
-                                >
-                                    <div className="text-charcoal/70 px-6 pb-4 text-sm leading-relaxed">
-                                        {faq.answer}
-                                    </div>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
             </div>
         </section>
     );
 }
+const services = [
+    {
+        color: "teal",
+        colorHex: "#14b8a6",
+        accentColor: "bg-teal",
+        textColor: "text-teal",
+        borderColor: "border-teal/30",
+        title: "Instagram & Local Sellers",
+        subtitle: "Selling on Instagram or WhatsApp?",
+        description:
+            "Turn your DMs into a real checkout experience. We build you a store that takes orders, payments, and runs 24/7 — without you lifting a finger.",
+    },
+    {
+        color: "indigo",
+        colorHex: "#6366f1",
+        accentColor: "bg-indigo",
+        textColor: "text-indigo",
+        borderColor: "border-indigo/30",
+        title: "Hotel & Stays",
+        subtitle: "Running a Hotel or B&B?",
+        description:
+            "Stop losing bookings to OTAs. We build direct booking websites that save you commission and give guests a seamless reservation experience.",
+    },
+    {
+        color: "coral",
+        colorHex: "#f97066",
+        accentColor: "bg-coral",
+        textColor: "text-coral",
+        borderColor: "border-coral/30",
+        title: "Small Businesses & Creators",
+        subtitle: "Need a Web Presence?",
+        description:
+            "From portfolio sites to business landing pages — if you need something that looks great and works perfectly, we build it right.",
+    },
+    {
+        color: "lavender",
+        colorHex: "#ba9ad3",
+        accentColor: "bg-lavender",
+        textColor: "text-lavender",
+        borderColor: "border-lavender/30",
+        title: "Restaurants & Cafés",
+        subtitle: "Want online orders without fees?",
+        description:
+            "Stop paying commissions to delivery apps. We build custom ordering systems that put profit back in your pocket and give you full control.",
+    },
+    {
+        color: "brand",
+        colorHex: "#306c4d",
+        accentColor: "bg-brand",
+        textColor: "text-brand",
+        borderColor: "border-brand/30",
+        title: "Service Providers",
+        subtitle: "Consultants, Coaches & Agencies?",
+        description:
+            "Book meetings, showcase your work, and capture leads without the hassle. We build sites that turn visitors into clients.",
+    },
+    {
+        color: "cambridge",
+        colorHex: "#77ba99",
+        accentColor: "bg-cambridge",
+        textColor: "text-cambridge",
+        borderColor: "border-cambridge/30",
+        title: "Event & Workshop Hosts",
+        subtitle: "Hosting events or workshops?",
+        description:
+            "Sell tickets, manage registrations, and promote your events — all in one place. No middleman, no confusion, just streamlined bookings.",
+    },
+];

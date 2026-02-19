@@ -1,16 +1,15 @@
 "use client";
-import React from "react";
-import {
-    Accordion,
-    AccordionContent,
-    AccordionItem,
-    AccordionTrigger,
-} from "@/components/ui/accordion";
-import { faqs } from "@/data/faq";
+import { useState } from "react";
+
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 
 const FAQ = () => {
+    const [openFaq, setOpenFaq] = useState(null);
+
+    const toggleFaq = (index: any) => {
+        setOpenFaq(openFaq === index ? null : index);
+    };
     useGSAP(() => {
         gsap.to("#faq-section", {
             scrollTrigger: {
@@ -26,33 +25,93 @@ const FAQ = () => {
     }, []);
 
     return (
-        <section className="relative" id="faq-section">
-            <h2 className="mb-6 font-semibold">[FAQ]</h2>
-            <h1 className="mb-16 text-4xl leading-12 font-bold tracking-tight text-wrap md:text-5xl xl:max-w-4xl xl:text-6xl xl:leading-16">
-                Not just services - we deliver growth, clarity, and real impact.
-            </h1>
+        <section className="relative px-4 sm:px-6 lg:px-8" id="faq-section">
+            <div className="mx-auto max-w-3xl">
+                <h3 className="text-charcoal mb-6 text-2xl font-bold">
+                    Common Questions
+                </h3>
+                <div className="space-y-3">
+                    {faqs.map((faq, index) => (
+                        <div
+                            key={index}
+                            className={`overflow-hidden border-l-4 bg-white transition-all duration-200 ${
+                                openFaq === index
+                                    ? "border-brand shadow-md"
+                                    : "border-transparent shadow-md"
+                            }`}
+                            style={{ borderRadius: "0 8px 8px 0" }}
+                        >
+                            <button
+                                onClick={() => toggleFaq(index)}
+                                className="flex w-full items-center justify-between px-6 py-4 text-left transition-colors hover:bg-gray-50"
+                            >
+                                <span className="text-charcoal text-base font-semibold md:text-base">
+                                    {faq.question}
+                                </span>
+                                <div
+                                    className={`ml-4 flex h-6 w-6 shrink-0 items-center justify-center rounded-full transition-all duration-200 ${
+                                        openFaq === index
+                                            ? "bg-brand rotate-180"
+                                            : "bg-gray-200"
+                                    }`}
+                                >
+                                    <svg
+                                        className={`h-4 w-4 transition-colors ${
+                                            openFaq === index
+                                                ? "text-white"
+                                                : "text-gray-600"
+                                        }`}
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24"
+                                    >
+                                        <path
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            strokeWidth={2}
+                                            d="M19 9l-7 7-7-7"
+                                        />
+                                    </svg>
+                                </div>
+                            </button>
 
-            <div className="mx-auto w-full">
-                {faqs.map((faq) => (
-                    <Accordion
-                        key={faq.id}
-                        type="single"
-                        collapsible
-                        className="mb-4 rounded-lg bg-white p-4"
-                    >
-                        <AccordionItem value={`item-${faq.id}`}>
-                            <AccordionTrigger className="text-lg font-semibold">
-                                {faq.question}
-                            </AccordionTrigger>
-                            <AccordionContent className="text-base font-medium text-zinc-600">
-                                {faq.answer}
-                            </AccordionContent>
-                        </AccordionItem>
-                    </Accordion>
-                ))}
+                            <div
+                                className={`overflow-hidden transition-all duration-200 ${
+                                    openFaq === index ? "max-h-96" : "max-h-0"
+                                }`}
+                            >
+                                <div className="text-charcoal/70 px-6 pb-4 text-sm leading-relaxed">
+                                    {faq.answer}
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
             </div>
         </section>
     );
 };
 
 export default FAQ;
+const faqs = [
+    {
+        question: "What's your typical delivery timeline?",
+        answer: "We usually deliver the first version within 5–7 days. Final delivery depends on the scope, but most websites are completed within 2 weeks, including feedback and edits.",
+    },
+    {
+        question: "How do we stay in touch during the project?",
+        answer: "We use async communication through Slack, WhatsApp, or email — whatever you're most comfortable with. This helps us stay focused on building your website while keeping you in the loop at all times.",
+    },
+    {
+        question: "What if I'm not happy with the design?",
+        answer: "We'll work closely with you and iterate till you're 100% satisfied. Your feedback is the heart of the process, and we're super flexible when it comes to changes and refinements.",
+    },
+    {
+        question: "What tech stack do you use?",
+        answer: "We mostly work with Next.js and Tailwind CSS — because they're fast, modern, and SEO-friendly. But we're open to other stacks too if your project calls for it!",
+    },
+    {
+        question: "What if I need updates after the site is live?",
+        answer: "You'll get a short video guide to help you make basic changes. For anything advanced, we offer paid support or monthly retainers — so you're never stuck with a broken or outdated site.",
+    },
+];
