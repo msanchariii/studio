@@ -1,10 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { Navlink } from "./navbar/Navlink";
 import Image from "next/image";
 import { ArrowRight, X, Menu } from "lucide-react";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
+import { usePathname } from "next/navigation";
+import gsap from "gsap";
 
 const navigation = [
     { name: "Home", href: "/" },
@@ -15,6 +16,36 @@ const navigation = [
 
 export default function Navbar() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const pathName = usePathname();
+    const pillRef = useRef<HTMLDivElement>(null);
+    const navRef = useRef<HTMLElement>(null);
+    const linkRefs = useRef<(HTMLAnchorElement | null)[]>([]);
+
+    const movePillTo = (el: HTMLAnchorElement | null, duration = 0.25) => {
+        if (!el || !pillRef.current || !navRef.current) return;
+        const navRect = navRef.current.getBoundingClientRect();
+        const linkRect = el.getBoundingClientRect();
+        gsap.to(pillRef.current, {
+            x: linkRect.left - navRect.left,
+            width: linkRect.width,
+            duration,
+            ease: "power3.out",
+        });
+    };
+
+    // Position pill on active link on mount and route change
+    useEffect(() => {
+        const activeIndex = navigation.findIndex(
+            (item) => item.href === pathName,
+        );
+        if (activeIndex !== -1) {
+            // Use a tiny delay to let layout settle
+            const raf = requestAnimationFrame(() =>
+                movePillTo(linkRefs.current[activeIndex], 0),
+            );
+            return () => cancelAnimationFrame(raf);
+        }
+    }, [pathName]);
 
     return (
         <header className="fixed top-4 right-0 left-0 z-50 px-4 sm:px-6 lg:px-8">
@@ -33,9 +64,40 @@ export default function Navbar() {
                     </Link>
 
                     {/* Navigation Links */}
-                    <nav className="hidden items-center space-x-2 rounded-full bg-gray-100/60 px-2 py-1.5 backdrop-blur-sm md:flex">
-                        {navigation.map((item) => (
-                            <Navlink key={item.name} item={item} />
+                    <nav
+                        ref={navRef}
+                        className="relative hidden items-center rounded-full bg-gray-100/60 px-2 py-1.5 backdrop-blur-sm md:flex"
+                    >
+                        {/* Sliding background pill */}
+                        <div
+                            ref={pillRef}
+                            className="absolute top-1.5 left-0 h-[calc(100%-12px)] rounded-full bg-white shadow-sm"
+                            style={{ width: 0 }}
+                        />
+                        {navigation.map((item, i) => (
+                            <Link
+                                key={item.name}
+                                href={item.href}
+                                ref={(el) => {
+                                    linkRefs.current[i] = el;
+                                }}
+                                onMouseEnter={() =>
+                                    movePillTo(linkRefs.current[i])
+                                }
+                                onMouseLeave={() => {
+                                    const activeIndex = navigation.findIndex(
+                                        (n) => n.href === pathName,
+                                    );
+                                    movePillTo(linkRefs.current[activeIndex]);
+                                }}
+                                className={`relative z-10 rounded-full px-5 py-2 text-sm font-medium transition-colors duration-200 ${
+                                    item.href === pathName
+                                        ? "text-gray-900"
+                                        : "text-gray-600 hover:text-gray-900"
+                                }`}
+                            >
+                                {item.name}
+                            </Link>
                         ))}
                     </nav>
 
