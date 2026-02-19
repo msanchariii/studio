@@ -2,6 +2,7 @@
 import { sectionDescriptions } from "@/data/globals";
 import Calendly from "../Calendly";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Hero() {
     return (
@@ -11,11 +12,14 @@ export default function Hero() {
                 <p className="mx-auto mb-8 max-w-2xl">
                     {sectionDescriptions.hero}
                 </p>
-                <div className="mb-4 flex justify-center gap-4">
+                <div className="mb-4 flex flex-col justify-center gap-4 sm:flex-row">
                     <Calendly />
-                    <button className="rounded-full border-2 border-black px-4 transition-all duration-150 hover:bg-black/80 hover:text-white">
+                    <Link
+                        href="/contact"
+                        className="flex items-center justify-center rounded-full border-2 border-black bg-transparent px-4 py-2 text-black transition-colors hover:bg-black hover:text-white"
+                    >
                         Contact
-                    </button>
+                    </Link>
                 </div>
             </div>
 
