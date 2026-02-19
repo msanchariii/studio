@@ -7,7 +7,7 @@ import PointyPattern from "@/components/PointyPattern";
 
 const Pricing = () => {
     return (
-        <div className="min-h-screen py-24">
+        <div className="min-h-screen py-32">
             <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
                 {/* Header Section */}
                 <div className="mb-20 border-b border-zinc-200 pb-12">

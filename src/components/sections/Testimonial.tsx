@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { testimonialData, TestimonialItem } from "@/data/testimonial";
+import { testimonialData } from "@/data/testimonial";
 
 const Testimonial: React.FC = () => {
     const colors = ["teal", "indigo", "coral", "lavender"];
