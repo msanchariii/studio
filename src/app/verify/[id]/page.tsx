@@ -2,6 +2,12 @@ import { verifyCerticateData } from "@/data/verify";
 import { Check, X } from "lucide-react";
 import React from "react";
 
+export function generateStaticParams() {
+    return Object.keys(verifyCerticateData).map((id) => ({
+        id,
+    }));
+}
+
 const formatDate = (date: string) =>
     new Date(date).toLocaleDateString("en-IN", {
         day: "numeric",
