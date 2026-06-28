@@ -19,7 +19,7 @@ export const workData: Work[] = [
             "/assets/projects/thegrandk1.png",
             "/assets/projects/thegrandk2.png",
         ],
-        liveUrl: "https://thegrandk.vercel.app/",
+        liveUrl: "https://www.thegrandkalimpong.in/",
     },
     {
         id: "2",
@@ -35,16 +35,16 @@ export const workData: Work[] = [
         // sampleUrl: "https://example.com/sample-alpha",
     },
 
-    // {
-    //     id: "2",
-    //     title: "Music School Website",
-    //     year: "2025",
-    //     description:
-    //         "A responsive, multi-section music school landing page designed to engage prospective students with clear navigation to “Home,” “Courses,” and “Contact Us.” The homepage promotes key offerings like Guitar Fundamentals, Advanced Vocal Techniques, and Music Production courses—encouraging exploration and enrollment.",
-    //     imageUrls: [
-    //         "/assets/projects/musico1.webp",
-    //         "/assets/projects/musico2.webp",
-    //     ],
-    //     liveUrl: "https://music-school-website-zeta.vercel.app/",
-    // },
+    {
+        id: "3",
+        title: "Bangalir Street Food",
+        year: "2026",
+        description:
+            "Bangalir Street Food is an easy-to-use travel booking platform from scratch that handles 24/7 secure payments, works perfectly on phones, and has a built-in admin dashboard so the team can manage everything behind the scenes.",
+        imageUrls: [
+            "/assets/projects/bangalirstreetfood1.png",
+            "/assets/projects/bangalirstreetfood2.png",
+        ],
+        liveUrl: "https://bangalirstreetfood.com",
+    },
 ];

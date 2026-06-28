@@ -1,10 +1,11 @@
 import WorkCard from "@/components/WorkCard";
 import { sectionDescriptions } from "@/data/globals";
 import { workData } from "@/data/works";
+import { Metadata } from "next";
 
 import React from "react";
 
-export const metadata = {
+export const metadata: Metadata = {
     title: "Our Work",
     description:
         "Explore our portfolio of fast, scalable websites and digital products crafted for startups, creators, and small teams.",
