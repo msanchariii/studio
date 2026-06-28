@@ -1,3 +1,4 @@
+import PosterPopup from "@/components/PosterPopup";
 import FAQ from "@/components/sections/FAQ";
 import Hero from "@/components/sections/Hero";
 import WhoWeServe from "@/components/sections/OurProducts";
@@ -14,6 +15,7 @@ export default function Home() {
             <Workflow />
             <Testimonial />
             <FAQ />
+            <PosterPopup />
         </>
     );
 }

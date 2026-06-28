@@ -113,7 +113,7 @@ export default function RootLayout({
             >
                 <GsapProvider>
                     <Navbar />
-                    <main className="mx-auto w-full max-w-7xl">{children}</main>
+                    <main className="mx-auto w-full max-w-360">{children}</main>
                     <Footer />
                 </GsapProvider>
             </body>

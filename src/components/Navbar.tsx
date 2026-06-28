@@ -48,7 +48,7 @@ export default function Navbar() {
     }, [pathName]);
 
     return (
-        <header className="fixed top-4 right-0 left-0 z-50 px-4 sm:px-6 lg:px-8">
+        <header className="fixed top-8 right-0 left-0 z-50 px-4 sm:px-6 lg:px-8">
             <div className="mx-auto max-w-5xl">
                 <div className="flex h-18 items-center justify-between rounded-2xl border border-gray-200/20 bg-white/60 px-6 shadow-lg shadow-gray-900/5 backdrop-blur-md transition-all duration-300 hover:shadow-xl">
                     {/* Logo */}
