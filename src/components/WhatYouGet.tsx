@@ -1,5 +1,3 @@
-import React from "react";
-
 const WhatYouGet = () => {
     return (
         <section className="relative overflow-hidden px-4 py-16 sm:px-6 md:py-20 lg:px-8">

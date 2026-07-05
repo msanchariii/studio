@@ -257,7 +257,7 @@ export default function WhoWeServe() {
                 </div>
 
                 {/* Footer strip */}
-                <div className="mt-14 flex flex-wrap gap-x-8 gap-y-2 border-t border-white/10 pt-6 font-mono text-[11px] tracking-wide text-white/35">
+                {/* <div className="mt-14 flex flex-wrap gap-x-8 gap-y-2 border-t border-white/10 pt-6 font-mono text-[11px] tracking-wide text-white/35">
                     <div>
                         <span className="text-emerald-500/80">06</span> profiles
                         matched
@@ -270,7 +270,7 @@ export default function WhoWeServe() {
                         <span className="text-emerald-500/80">$0</span>{" "}
                         commission taken by us
                     </div>
-                </div>
+                </div> */}
             </div>
         </section>
     );

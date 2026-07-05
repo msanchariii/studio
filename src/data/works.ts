@@ -11,6 +11,18 @@ export type Work = {
 export const workData: Work[] = [
     {
         id: "1",
+        title: "Bangalir Street Food",
+        year: "2026",
+        description:
+            "Bangalir Street Food is an easy-to-use travel booking platform from scratch that handles 24/7 secure payments, works perfectly on phones, and has a built-in admin dashboard so the team can manage everything behind the scenes.",
+        imageUrls: [
+            "/assets/projects/bangalirstreetfood1.png",
+            "/assets/projects/bangalirstreetfood2.png",
+        ],
+        liveUrl: "https://bangalirstreetfood.com",
+    },
+    {
+        id: "2",
         title: "The Grand Kalimpong",
         year: "2025",
         description:
@@ -22,7 +34,7 @@ export const workData: Work[] = [
         liveUrl: "https://www.thegrandkalimpong.in/",
     },
     {
-        id: "2",
+        id: "3",
         title: "Rustic Charm Homestay",
         year: "2024",
         description:
@@ -35,16 +47,4 @@ export const workData: Work[] = [
         // sampleUrl: "https://example.com/sample-alpha",
     },
 
-    {
-        id: "3",
-        title: "Bangalir Street Food",
-        year: "2026",
-        description:
-            "Bangalir Street Food is an easy-to-use travel booking platform from scratch that handles 24/7 secure payments, works perfectly on phones, and has a built-in admin dashboard so the team can manage everything behind the scenes.",
-        imageUrls: [
-            "/assets/projects/bangalirstreetfood1.png",
-            "/assets/projects/bangalirstreetfood2.png",
-        ],
-        liveUrl: "https://bangalirstreetfood.com",
-    },
 ];
