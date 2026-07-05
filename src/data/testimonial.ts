@@ -23,20 +23,20 @@ export const testimonialData: TestimonialItem[] = [
             "Outstanding results and exceptional customer service. I would highly recommend this to any business looking to scale.",
         via: "Local Reference",
     },
-    {
-        name: "Emma Williams",
-        position: "Marketing Director",
-        company: "BrandForge",
-        testimonial:
-            "The team's expertise and dedication to our project was remarkable. They delivered beyond what we thought was possible.",
-        via: "Local Reference",
-    },
-    {
-        name: "David Brown",
-        position: "CTO",
-        company: "NextGen Apps",
-        testimonial:
-            "They delivered exactly what we needed on time. The seamless process and communication were top-notch.",
-        via: "Local Reference",
-    },
+    // {
+    //     name: "Emma Williams",
+    //     position: "Marketing Director",
+    //     company: "BrandForge",
+    //     testimonial:
+    //         "The team's expertise and dedication to our project was remarkable. They delivered beyond what we thought was possible.",
+    //     via: "Local Reference",
+    // },
+    // {
+    //     name: "David Brown",
+    //     position: "CTO",
+    //     company: "NextGen Apps",
+    //     testimonial:
+    //         "They delivered exactly what we needed on time. The seamless process and communication were top-notch.",
+    //     via: "Local Reference",
+    // },
 ];

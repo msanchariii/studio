@@ -2,7 +2,7 @@ export const pricingPlans = [
     {
         id: 1,
         name: "Shopify Store",
-        price: 25000,
+        price: 35000,
         priceUnit: "/year",
         description: "Perfect for Instagram sellers ready to automate sales",
         features: [
@@ -23,7 +23,7 @@ export const pricingPlans = [
     {
         id: 2,
         name: "Custom E-commerce",
-        price: 45000,
+        price: 85000,
         description: "Full-featured store with complete ownership and control",
         features: [
             "Custom design & development (no templates)",
@@ -49,7 +49,7 @@ export const pricingPlans = [
         description:
             "Professional website for service businesses and local shops",
         features: [
-            "8-10 custom pages (Home, About, Services, Contact, etc.)",
+            "5-7 custom pages (Home, About, Services, Contact, etc.)",
             "Mobile responsive design",
             "Content management system (update easily yourself)",
             "Contact & inquiry forms",
@@ -87,7 +87,7 @@ export const pricingPlans = [
     {
         id: 5,
         name: "Hotel & Restaurant",
-        price: 18000,
+        price: 22000,
         description:
             "Showcase your hospitality business and take direct bookings",
         features: [

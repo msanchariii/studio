@@ -189,12 +189,15 @@ const PricingCard = ({
                         <div className="mb-6">
                             {plan.price ? (
                                 <div className="flex items-baseline gap-2">
+                                    {
+                                        !plan.priceUnit && (<span className="font-medium">From</span>) 
+                                    }
                                     <span className="text-charcoal text-4xl font-bold">
                                         ₹{plan.price.toLocaleString()}
                                     </span>
                                     {plan.priceUnit && (
                                         <span className="text-charcoal/60 text-sm">
-                                            /{plan.priceUnit}
+                                            {plan.priceUnit}
                                         </span>
                                     )}
                                 </div>

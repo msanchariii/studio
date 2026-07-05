@@ -1,21 +1,25 @@
+import OurBestsellers from "@/components/OurBestsellers";
 import PosterPopup from "@/components/PosterPopup";
 import FAQ from "@/components/sections/FAQ";
 import Hero from "@/components/sections/Hero";
 import WhoWeServe from "@/components/sections/OurProducts";
+import OurTeam from "@/components/sections/OurTeam";
 import Testimonial from "@/components/sections/Testimonial";
-import Workflow from "@/components/sections/Workflow";
-import WhatYouGet from "@/components/WhatYouGet";
+// import Workflow from "@/components/sections/Workflow";
+// import WhatYouGet from "@/components/WhatYouGet";
 
 export default function Home() {
     return (
         <>
             <Hero />
             <WhoWeServe />
-            <WhatYouGet />
-            <Workflow />
+            <OurBestsellers />
+            {/* <WhatYouGet /> */}
+            {/* <Workflow /> */}
+            <OurTeam />
             <Testimonial />
             <FAQ />
-            <PosterPopup />
+            {/* <PosterPopup /> */}
         </>
     );
 }
