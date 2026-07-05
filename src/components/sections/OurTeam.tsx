@@ -26,7 +26,7 @@ const OurTeam = () => {
                 {teamMembers.map((member, idx) => (
                     <div
                         key={idx}
-                        className="m-2 flex w-full max-w-sm flex-col items-center gap-4 rounded-3xl bg-emerald-50 p-4 sm:w-auto sm:flex-row sm:items-start"
+                        className="m-2 flex w-full max-w-sm flex-col items-center gap-4 rounded-3xl bg-linear-to-tr from-emerald-50 to-emerald-100 p-4 sm:w-auto sm:flex-row sm:items-start"
                     >
                         <img
                             src={member.img.src}
