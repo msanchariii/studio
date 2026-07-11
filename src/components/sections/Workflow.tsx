@@ -55,12 +55,12 @@ const Workflow = () => {
                             <div
                                 key={step.title}
                                 className="flex flex-col items-start"
-                                style={{ marginLeft: `${index * 40}px` }}
+                                style={{ marginLeft: `${index * 65}px` }}
                             >
                                 <button
                                     onClick={() => setActiveStep(index)}
                                     className={`cursor-pointer text-left text-sm transition ${
-                                        activeStep >= index 
+                                        activeStep >= index
                                             ? "font-medium text-[#0B6B57]"
                                             : "text-gray-500 hover:text-black"
                                     }`}
@@ -68,7 +68,7 @@ const Workflow = () => {
                                     {index + 1}. {step.title}
                                 </button>
 
-                                {index !== steps.length - 1 && (
+                                {/* {index !== steps.length - 1 && (
                                     <svg
                                         width="110"
                                         height="52"
@@ -76,33 +76,54 @@ const Workflow = () => {
                                         className="-mt-1 ml-10"
                                         fill="none"
                                     >
+                                        <defs>
+                                            <marker
+                                                id={`arrowhead-${index}`}
+                                                viewBox="0 0 24 24"
+                                                markerWidth="12"
+                                                markerHeight="12"
+                                                refX="15"
+                                                refY="12"
+                                                orient="auto"
+                                            >
+                                                <path
+                                                    d="m6 9 6 6 6-6"
+                                                    fill="none"
+                                                    stroke={
+                                                        activeStep >= index + 1
+                                                            ? "#0B6B57"
+                                                            : "#D6D6D6"
+                                                    }
+                                                    strokeWidth="2.5"
+                                                    strokeLinecap="round"
+                                                    strokeLinejoin="round"
+                                                    transform="rotate(-90 12 12)"
+                                                />
+                                            </marker>
+                                        </defs>
                                         <path
-                                            d="M4 6
-                                        C18 6,18 26,32 26
-                                        C46 26,46 46,60 46
-                                        C74 46,74 26,90 26"
-                                            stroke={
-                                                activeStep >=  index+1
-                                                    ? "#0B6B57"
-                                                    : "#D6D6D6"
-                                            }
-                                            strokeWidth="2"
-                                            strokeDasharray="2 5"
-                                            strokeLinecap="round"
-                                        />
-
-                                        <path
-                                            d="M86 22L90 26L86 30"
+                                            d="M6 6
+               C24 8,14 26,32 28
+               C50 30,44 14,62 18
+               C80 22,86 34,98 42"
                                             stroke={
                                                 activeStep >= index + 1
                                                     ? "#0B6B57"
                                                     : "#D6D6D6"
                                             }
                                             strokeWidth="2"
+                                            strokeDasharray="1.5 6"
                                             strokeLinecap="round"
-                                            strokeLinejoin="round"
+                                            markerEnd={`url(#arrowhead-${index})`}
                                         />
                                     </svg>
+                                )} */}
+                                {index !== steps.length - 1 && (
+                                    <img
+                                        src="/arrow.svg"
+                                        alt={steps[index + 1].title}
+                                        className="my-4 ml-2 h-12 w-40 object-contain"
+                                    />
                                 )}
                             </div>
                         ))}
