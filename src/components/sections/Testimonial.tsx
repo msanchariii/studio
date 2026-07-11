@@ -1,79 +1,78 @@
 "use client";
+
 import React from "react";
 import { testimonialData } from "@/data/testimonial";
+import Image from "next/image";
 
 const Testimonial: React.FC = () => {
-    const colors = ["teal", "indigo", "coral", "lavender"];
-    const colorClasses = {
-        teal: "border-teal",
-        indigo: "border-indigo",
-        coral: "border-coral",
-        lavender: "border-lavender",
-    };
-
     return (
-        <section className="bg-white py-32">
-            <div className="mx-auto max-w-7xl px-4">
-                {/* Header Section */}
-                <div className="mb-16">
-                    <div className="mb-6 flex items-center gap-3">
-                        <div className="bg-brand h-0.5 w-10"></div>
-                        <p className="text-brand font-mono text-xs tracking-[0.3em] uppercase">
+        <section
+            className="relative mt-12 w-full max-w-none overflow-hidden py-14"
+            id="testimonials"
+        >
+            <div className="mx-auto max-w-5xl px-4">
+                {/* Header */}
+                <div className="mb-8 text-center">
+                    <div className="mb-3 flex items-center justify-center gap-3">
+                        <div className="bg-brand h-0.5 w-7" />
+                        <p className="text-green-200 font-mono text-[11px] tracking-[0.3em] uppercase">
                             Testimonials
                         </p>
+                        <div className="bg-brand h-0.5 w-7" />
                     </div>
-                    <h2 className="text-charcoal mb-4 text-4xl leading-tight font-bold md:text-5xl">
-                        What Our Clients Say
+
+                    <h2 className="mb-2 text-2xl font-bold text-white md:text-3xl">
+                        What Our Partners Say
                     </h2>
-                    <p className="text-charcoal/70 max-w-2xl text-sm leading-relaxed">
-                        Real feedback from businesses we&apos;ve helped grow
+
+                    <p className="mx-auto max-w-md text-xs text-white/60 md:text-sm">
+                        Real feedback from businesses we&apos;ve helped build
+                        and grow.
                     </p>
                 </div>
 
-                {/* Testimonials Grid */}
-                <div className="grid gap-6 md:grid-cols-2">
-                    {testimonialData.map((testimonial, index) => {
-                        const colorKey = colors[
-                            index % colors.length
-                        ] as keyof typeof colorClasses;
-                        const borderClass = colorClasses[colorKey];
+                {/* Testimonials */}
+                <div className="grid gap-4 md:grid-cols-2">
+                    {testimonialData.map((testimonial, index) => (
+                        <article
+                            key={`${testimonial.name}-${index}`}
+                            className="flex flex-col rounded-xl border border-white/10 bg-white p-4 shadow-md transition-all duration-300 hover:-translate-y-1"
+                        >
+                            <p className="mb-4 text-sm leading-relaxed text-zinc-700">
+                                {testimonial.testimonial}
+                            </p>
 
-                        return (
-                            <article
-                                key={`${testimonial.name}-${index}`}
-                                className={`flex flex-col border-t-4 border-l-4 ${borderClass} bg-white p-6 shadow-md transition-shadow duration-300 hover:shadow-lg`}
-                            >
-                                <div className="mb-4 grow">
-                                    <p className="text-charcoal/80 mb-4 text-sm leading-relaxed">
-                                        &quot;{testimonial.testimonial}&quot;
+                            <div className="mt-auto flex items-center gap-3 border-t border-zinc-200 pt-3">
+                                <Image
+                                    src={testimonial.image || ""}
+                                    alt={testimonial.name}
+                                    width={36}
+                                    height={36}
+                                    className="h-9 w-9 rounded-full bg-gray-500 object-cover"
+                                />
+
+                                <div>
+                                    <p className="text-xs font-semibold text-zinc-900">
+                                        {testimonial.name}
+                                    </p>
+
+                                    <p className="text-[11px] text-zinc-500">
+                                        {testimonial.position}
+                                    </p>
+
+                                    <p className="text-[11px] font-medium text-zinc-600">
+                                        {testimonial.company}
                                     </p>
                                 </div>
-                                <div className="flex items-start justify-between border-t border-zinc-200 pt-4">
-                                    <div>
-                                        <p className="text-charcoal font-semibold">
-                                            {testimonial.name}
-                                        </p>
-                                        <p className="text-charcoal/60 text-xs">
-                                            {testimonial.position}
-                                        </p>
-                                        <p className="text-charcoal/70 text-xs font-medium">
-                                            {testimonial.company}
-                                        </p>
-                                    </div>
-                                    {testimonial.via && (
-                                        <div className="text-right">
-                                            <p className="text-charcoal/50 text-xs">
-                                                via
-                                            </p>
-                                            <p className="text-charcoal/70 text-xs font-medium">
-                                                {testimonial.via}
-                                            </p>
-                                        </div>
-                                    )}
-                                </div>
-                            </article>
-                        );
-                    })}
+
+                                {testimonial.via && (
+                                    <p className="ml-auto text-[11px] text-zinc-400">
+                                        via {testimonial.via}
+                                    </p>
+                                )}
+                            </div>
+                        </article>
+                    ))}
                 </div>
             </div>
         </section>

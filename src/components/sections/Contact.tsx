@@ -35,7 +35,7 @@ export default function ContactPage() {
                             Get In Touch
                         </p>
                     </div>
-                    <h1 className="text-charcoal text-5xl leading-tight font-bold sm:text-6xl md:text-7xl">
+                    <h1 className="text-charcoal text-5xl leading-tight font-bold sm:text-6xl ">
                         Let&apos;s Work Together
                     </h1>
                 </div>

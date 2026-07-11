@@ -1,125 +1,60 @@
-import {
-    BadgeHelp,
-    Bot,
-    Database,
-    Hammer,
-    Instagram,
-    LayoutGrid,
-    MonitorSmartphone,
-    ShoppingCart,
-} from "lucide-react";
+import PageHeading from "@/components/PageHeading";
+import { Bot, Hotel, ShoppingCart } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 import React from "react";
-
-const websiteServices = [
+const services = [
     {
-        title: "Website Design and Development",
+        title: "D2C E-commerce Store",
         description:
-            "Create a stunning and functional website that represents your brand and engages your audience.",
+            "Launch a beautiful, high-converting Shopify store built for D2C brands from day one.",
+        image: "/images/services/shopify-store-development.jpg",
         listItems: [
-            "Custom designs tailored to your brand",
-            "Responsive and mobile-friendly layouts",
-            "SEO-optimized for better visibility",
-            "Fast loading times",
-            "User-friendly interfaces",
-        ],
-        icon: MonitorSmartphone,
-    },
-    {
-        title: "E-commerce Development",
-        description:
-            "Build a powerful online store that drives sales and enhances customer experience.",
-        listItems: [
-            "Custom e-commerce solutions",
-            "Shopping cart integration",
-            "Payment gateway setup",
-            "Inventory management",
-            "User-friendly product catalogs",
+            "Custom storefront design",
+            "Complete Shopify setup",
+            "Theme customization",
+            "Product & collection setup",
+            "Payment gateway integration",
+            "Shipping & tax configuration",
+            "Mobile & SEO optimization",
+            "Launch support",
         ],
         icon: ShoppingCart,
     },
     {
-        title: "CMS Integration",
+        title: "Hotel & Resort Booking Websites",
         description:
-            "Implement a CMS that allows you to easily manage and update your website content.",
+            "Modern booking websites that help hotels, resorts, and travel businesses accept direct online reservations.",
+        image: "/images/services/hotel-resort-booking-websites.jpg",
         listItems: [
-            "User-friendly interfaces for content updates",
-            "Integration with popular CMS platforms",
-            "Customizable templates",
-            "SEO-friendly content management",
-            "Scalable solution.",
+            "Room & package management",
+            "Online booking engine",
+            "Availability calendar",
+            "Secure online payments",
+            "Guest management",
+            "Admin dashboard",
+            "Email booking confirmations",
+            "Responsive design",
         ],
-        icon: Database,
+        icon: Hotel,
     },
-];
+    {
+        title: "AI Customer Support Automation",
+        description:
+            "Automate customer conversations across your website and WhatsApp so you never miss a lead.",
+        image: "/images/services/shopify-store-development.jpg",
 
-const automationServices = [
-    {
-        title: "Whatsapp Support Automation",
-        description:
-            "Integrate WhatsApp with your customer support system to automate responses.",
         listItems: [
+            "AI website chatbot",
+            "WhatsApp automation",
+            "Instant FAQ responses",
+            "Lead qualification",
+            "Appointment booking",
+            "Order status assistance",
+            "CRM integration",
             "24/7 customer support",
-            "No more waiting in line",
-            "No more missed messages",
-            "No more answering the same questions over and over",
-            "Automated ticketing systems",
-        ],
-        icon: BadgeHelp,
-    },
-    {
-        title: "Social Media Post Automation",
-        // post to all the social media platforms at once
-        description: "Post to all your social media platforms at once.",
-        listItems: [
-            "Schedule posts in advance",
-            "Manage multiple accounts",
-            "Track engagement metrics",
-            "Automate content sharing",
-            "Integration with content calendars",
-        ],
-        icon: Instagram,
-    },
-    {
-        title: "Chatbot Automation",
-        description:
-            "Integrate chatbots into your website or app to provide instant responses and support.",
-        listItems: [
-            "24/7 availability",
-            "Instant responses to common queries",
-            "Lead generation and qualification",
-            "Integration with CRM systems",
-            "Personalized user experiences",
         ],
         icon: Bot,
-    },
-];
-
-const mobileAppServices = [
-    {
-        title: "Mobile App Development",
-        description:
-            "Create high-quality mobile applications for iOS and Android platforms.",
-        listItems: [
-            "Custom app designs",
-            "Cross-platform compatibility",
-            "User-friendly interfaces",
-            "Integration with backend systems",
-            "App store submission support",
-        ],
-        icon: LayoutGrid,
-    },
-    {
-        title: "App Maintenance and Support",
-        description:
-            "Ensure your mobile app runs smoothly with ongoing maintenance and support services.",
-        listItems: [
-            "Regular updates and bug fixes",
-            "Performance optimization",
-            "User feedback integration",
-            "Security enhancements",
-            "24/7 technical support",
-        ],
-        icon: Hammer,
     },
 ];
 
@@ -128,80 +63,21 @@ const ServicesPage = () => {
         <section className="min-h-screen py-32">
             <div className="mx-auto max-w-7xl px-4 lg:px-8">
                 {/* Header Section */}
-                <div className="mb-20 border-b border-zinc-200 pb-12">
-                    <div className="mb-6 flex items-center gap-3">
-                        <div className="bg-brand h-0.5 w-10"></div>
-                        <p className="text-brand font-mono text-xs tracking-[0.3em] uppercase">
-                            What We Offer
-                        </p>
-                    </div>
-                    <h1 className="text-charcoal mb-6 text-5xl leading-tight font-bold sm:text-6xl md:text-7xl">
-                        Our Services
-                    </h1>
-                    <p className="text-charcoal/70 max-w-2xl text-sm leading-relaxed">
-                        Comprehensive solutions designed to transform your
-                        digital presence and streamline your operations.
-                    </p>
-                </div>
+                <PageHeading
+                    title="Services"
+                    subtitle="Everything Your Brand Needs to Grow"
+                    description="From high-converting Shopify stores to custom web applications, we build digital experiences that help businesses launch, scale, and sell."
+                />
 
-                {/* Website Services */}
-                <div className="mb-24">
-                    <div className="mb-12 flex items-center gap-3">
-                        <div className="bg-teal h-0.5 w-8"></div>
-                        <h2 className="text-charcoal/50 font-mono text-xs tracking-[0.2em] uppercase">
-                            Website Development
-                        </h2>
-                    </div>
-                    <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-                        {websiteServices.map((service, index) => (
-                            <ServiceCard
-                                key={index}
-                                item={service}
-                                color="teal"
-                                index={index}
-                            />
-                        ))}
-                    </div>
-                </div>
-
-                {/* Automation Services */}
-                <div className="mb-24">
-                    <div className="mb-12 flex items-center gap-3">
-                        <div className="bg-indigo h-0.5 w-8"></div>
-                        <h2 className="text-charcoal/50 font-mono text-xs tracking-[0.2em] uppercase">
-                            Automation Solutions
-                        </h2>
-                    </div>
-                    <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-                        {automationServices.map((service, index) => (
-                            <ServiceCard
-                                key={index}
-                                item={service}
-                                color="indigo"
-                                index={index}
-                            />
-                        ))}
-                    </div>
-                </div>
-
-                {/* Mobile App Services */}
-                <div className="mb-24">
-                    <div className="mb-12 flex items-center gap-3">
-                        <div className="bg-coral h-0.5 w-8"></div>
-                        <h2 className="text-charcoal/50 font-mono text-xs tracking-[0.2em] uppercase">
-                            Mobile Applications
-                        </h2>
-                    </div>
-                    <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-                        {mobileAppServices.map((service, index) => (
-                            <ServiceCard
-                                key={index}
-                                item={service}
-                                color="coral"
-                                index={index}
-                            />
-                        ))}
-                    </div>
+                <div className="space-y-8">
+                    {services.map((service, index) => (
+                        <ServiceCard
+                            key={service.title}
+                            item={service}
+                            // color="brand"
+                            index={index}
+                        />
+                    ))}
                 </div>
 
                 {/* CTA Section */}
@@ -231,116 +107,77 @@ const ServicesPage = () => {
 
 export default ServicesPage;
 
+interface Service {
+    title: string;
+    description: string;
+    listItems: string[];
+    icon: React.ElementType;
+}
+
 const ServiceCard = ({
     item,
-    color,
     index,
 }: {
-    item: {
-        title: string;
-        description: string;
-        listItems: string[];
-        icon: React.ElementType;
-    };
-    color: string;
+    item: Service & { image: string };
     index: number;
 }) => {
-    const { icon: IconComponent } = item;
-
-    const colorSchemes = {
-        teal: {
-            accent: "border-teal",
-            bg: "bg-teal",
-            text: "text-teal",
-            bgLight: "bg-teal/10",
-            dot: "bg-teal/30",
-        },
-        indigo: {
-            accent: "border-indigo",
-            bg: "bg-indigo",
-            text: "text-indigo",
-            bgLight: "bg-indigo/10",
-            dot: "bg-indigo/30",
-        },
-        coral: {
-            accent: "border-coral",
-            bg: "bg-coral",
-            text: "text-coral",
-            bgLight: "bg-coral/10",
-            dot: "bg-coral/30",
-        },
-        lavender: {
-            accent: "border-lavender",
-            bg: "bg-lavender",
-            text: "text-lavender",
-            bgLight: "bg-lavender/10",
-            dot: "bg-lavender/30",
-        },
-        brand: {
-            accent: "border-brand",
-            bg: "bg-brand",
-            text: "text-brand",
-            bgLight: "bg-brand/10",
-            dot: "bg-brand/30",
-        },
-    };
-
-    const scheme = colorSchemes[color as keyof typeof colorSchemes];
+    const reversed = index % 2 !== 0;
 
     return (
-        <article className="group relative">
+        <article className="rounded-3xl border border-zinc-200 bg-white p-8">
             <div
-                className={`h-full border-l-4 ${scheme.accent} bg-white p-6 shadow-md transition-all duration-300 hover:shadow-lg`}
+                className={`grid items-center gap-6 lg:grid-cols-2 ${
+                    reversed ? "lg:[&>*:first-child]:order-2" : ""
+                }`}
             >
-                {/* Number Badge */}
-                <div className="mb-6 flex items-start justify-between">
-                    <div
-                        className={`${scheme.bg} flex h-12 w-12 items-center justify-center text-white shadow-md`}
-                    >
-                        <IconComponent className="h-6 w-6" />
-                    </div>
-                    <div
-                        className={`font-mono text-sm font-bold ${scheme.text}`}
-                    >
-                        {String(index + 1).padStart(2, "0")}
-                    </div>
+                {/* Image */}
+                <div className="overflow-hidden rounded-2xl border border-zinc-200">
+                    <Image
+                        src={item.image}
+                        alt={item.title}
+                        width={800}
+                        height={600}
+                        className="aspect-5/3 h-full w-full object-cover transition duration-500"
+                    />
                 </div>
 
-                {/* Title */}
-                <h3 className="text-charcoal mb-3 text-xl leading-tight font-bold">
-                    {item.title}
-                </h3>
+                {/* Content */}
+                <div>
+                    <h3 className="text-charcoal mb-2 text-2xl font-bold">
+                        {item.title}
+                    </h3>
 
-                {/* Description */}
-                <p className="text-charcoal/70 mb-6 text-sm leading-relaxed">
-                    {item.description}
-                </p>
+                    <p className="text-charcoal/70 mb-4 leading-7">
+                        {item.description}
+                    </p>
 
-                {/* Features List */}
-                <ul className="space-y-2">
-                    {item.listItems.map((listItem, idx) => (
-                        <li
-                            key={idx}
-                            className="text-charcoal/60 flex items-start gap-2 text-sm"
+                    <ul className="mb-5 space-y-2">
+                        {item.listItems.map((feature) => (
+                            <li
+                                key={feature}
+                                className="text-charcoal/80 flex items-center gap-3"
+                            >
+                                <div className="bg-brand h-2 w-2 rounded-full" />
+                                {feature}
+                            </li>
+                        ))}
+                    </ul>
+
+                    <div className="flex flex-wrap gap-4">
+                        <Link
+                            href="/work"
+                            className="bg-brand rounded-full px-6 py-3 font-medium text-white transition hover:opacity-90"
                         >
-                            <div
-                                className={`mt-1.5 h-1.5 w-1.5 shrink-0 ${scheme.dot}`}
-                            ></div>
-                            <span>{listItem}</span>
-                        </li>
-                    ))}
-                </ul>
+                            View Work
+                        </Link>
 
-                {/* Decorative corner element */}
-                <div
-                    className={`absolute right-0 bottom-0 h-20 w-20 ${scheme.bgLight} opacity-0 transition-opacity duration-300 group-hover:opacity-100`}
-                >
-                    <div
-                        className={`absolute right-0 bottom-0 h-1 w-10 ${scheme.bg}`}
-                    ></div>
-                    <div
-                        className={`absolute right-0 bottom-0 h-10 w-1 ${scheme.bg}`}
-                    ></div>
+                        <Link
+                            href="/contact"
+                            className="border-brand text-brand hover:bg-brand rounded-full border px-6 py-3 font-medium transition hover:text-white"
+                        >
+                            Contact Us
+                        </Link>
+                    </div>
                 </div>
             </div>
         </article>

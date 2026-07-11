@@ -144,3 +144,28 @@
         @apply mx-auto w-full max-w-5xl;
     }
 }
+
+#testimonials {
+    background:
+        radial-gradient(
+            circle at 0% 0%,
+            rgba(22, 101, 52, 0.45),
+            transparent 45%
+        ),
+        radial-gradient(
+            circle at 100% 10%,
+            rgba(6, 78, 59, 0.5),
+            transparent 45%
+        ),
+        radial-gradient(
+            circle at 80% 100%,
+            rgba(15, 118, 110, 0.35),
+            transparent 50%
+        ),
+        radial-gradient(
+            circle at 20% 90%,
+            rgba(77, 124, 15, 0.25),
+            transparent 45%
+        ),
+        #07140e;
+}

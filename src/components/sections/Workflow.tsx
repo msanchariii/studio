@@ -1,207 +1,158 @@
 "use client";
-import { WorkflowHeadline } from "@/data/SectionHeadlines";
-import React from "react";
-const cards = [
+
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import Image from "next/image";
+import React, { useState } from "react";
+
+const steps = [
     {
-        id: "01",
-        title: "Discovery & Research",
-        desc: "We start with a deep dive into your brand, understanding your goals, audience, and market landscape to inform our strategy.",
-        color: "teal",
+        title: "Understand Your Vision",
+        image: "/assets/fashion-store.avif",
+        description:
+            "We start by understanding your business goals, audience and expectations.",
     },
     {
-        id: "02",
-        title: "Strategy & Planning",
-        desc: "Crafting a tailored strategy that aligns with your vision, ensuring every step is purposeful and impactful.",
-        color: "cambridge",
+        title: "Plan & Strategize",
+        image: "/assets/fashion-store.avif",
+        description:
+            "We prepare the sitemap, user journey and development roadmap.",
     },
     {
-        id: "03",
-        title: "Execution & Delivery",
-        desc: "We bring the plan to life with precision and creativity, ensuring timely delivery and measurable results.",
-        color: "coral",
+        title: "Design & Develop",
+        image: "/assets/fashion-store.avif",
+        description: "Beautiful UI combined with clean, scalable development.",
     },
     {
-        id: "04",
-        title: "Feedback & Iteration",
-        desc: "Gathering insights and feedback to refine our approach, ensuring continuous improvement and alignment with your goals.",
-        color: "lavender",
+        title: "Test & Refine",
+        image: "/assets/fashion-store.avif",
+        description: "Every feature is tested and refined before launch.",
     },
     {
-        id: "05",
-        title: "Ongoing Support",
-        desc: "Our partnership doesn't end with delivery. We provide 3 months of support to ensure your continued success and growth.",
-        color: "indigo",
-    },
-    {
-        id: "contact",
-        title: "Contact Us",
-        desc: "Ready to start? Get in touch with us to discuss your project and how we can help you achieve your goals.",
-        color: "brand",
+        title: "Launch & Support",
+        image: "/assets/fashion-store.avif",
+        description: "Deployment, monitoring and ongoing support after launch.",
     },
 ];
+
 const Workflow = () => {
+    const [activeStep, setActiveStep] = useState(0);
+
+    const next = () =>
+        setActiveStep((prev) => Math.min(prev + 1, steps.length - 1));
+
+    const prev = () => setActiveStep((prev) => Math.max(prev - 1, 0));
+
     return (
-        <section className="relative min-h-dvh px-4 sm:px-6 lg:px-8">
-            <div className="mb-2">
-                <div className="mb-6 flex items-center gap-3">
-                    <div className="bg-brand h-0.5 w-10"></div>
-                    <p className="text-brand font-mono text-xs tracking-[0.3em] uppercase">
-                        Workflow
-                    </p>
+        <section className="relative min-h-dvh p-4 sm:p-6 lg:p-8">
+            <div className="grid gap-16 lg:grid-cols-[450px_1fr]">
+                {/* LEFT */}
+                <div>
+                    <h2 className="mb-8 text-5xl font-semibold">
+                        Our Workflow
+                    </h2>
+                    <div className="flex flex-col items-start">
+                        {steps.map((step, index) => (
+                            <div
+                                key={step.title}
+                                className="flex flex-col items-start"
+                                style={{ marginLeft: `${index * 40}px` }}
+                            >
+                                <button
+                                    onClick={() => setActiveStep(index)}
+                                    className={`cursor-pointer text-left text-sm transition ${
+                                        activeStep >= index 
+                                            ? "font-medium text-[#0B6B57]"
+                                            : "text-gray-500 hover:text-black"
+                                    }`}
+                                >
+                                    {index + 1}. {step.title}
+                                </button>
+
+                                {index !== steps.length - 1 && (
+                                    <svg
+                                        width="110"
+                                        height="52"
+                                        viewBox="0 0 110 52"
+                                        className="-mt-1 ml-10"
+                                        fill="none"
+                                    >
+                                        <path
+                                            d="M4 6
+                                        C18 6,18 26,32 26
+                                        C46 26,46 46,60 46
+                                        C74 46,74 26,90 26"
+                                            stroke={
+                                                activeStep >=  index+1
+                                                    ? "#0B6B57"
+                                                    : "#D6D6D6"
+                                            }
+                                            strokeWidth="2"
+                                            strokeDasharray="2 5"
+                                            strokeLinecap="round"
+                                        />
+
+                                        <path
+                                            d="M86 22L90 26L86 30"
+                                            stroke={
+                                                activeStep >= index + 1
+                                                    ? "#0B6B57"
+                                                    : "#D6D6D6"
+                                            }
+                                            strokeWidth="2"
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                        />
+                                    </svg>
+                                )}
+                            </div>
+                        ))}
+                    </div>
+                    <div className="mt-8 flex gap-4">
+                        <button
+                            onClick={prev}
+                            disabled={activeStep === 0}
+                            className="flex h-12 w-12 items-center justify-center rounded-full bg-black text-white transition hover:bg-zinc-800 disabled:cursor-not-allowed disabled:opacity-40"
+                        >
+                            <ChevronLeft className="h-5 w-5" />
+                        </button>
+
+                        <button
+                            onClick={next}
+                            disabled={activeStep === steps.length - 1}
+                            className="flex h-12 w-12 items-center justify-center rounded-full bg-black text-white transition hover:bg-zinc-800 disabled:cursor-not-allowed disabled:opacity-40"
+                        >
+                            <ChevronRight className="h-5 w-5" />
+                        </button>
+                    </div>
                 </div>
-                <h2 className="text-charcoal mb-4 text-4xl leading-tight font-bold md:text-5xl">
-                    No guesswork. Just a clear, proven{" "}
-                    <span className="text-coral">
-                        process that clearly works
-                    </span>
-                </h2>
-                <p className="text-charcoal/70 max-w-2xl text-sm leading-relaxed">
-                    Our step-by-step approach ensures your project is on the
-                    right track from day one. We break down the entire process
-                    into clear, manageable phases, so you always know what to
-                    expect and when. No surprises, just results.
-                </p>
-            </div>
-            {/* <WorkflowHeadline /> */}
-            <div
-                className={
-                    "relative mx-auto flex max-w-7xl flex-col items-start justify-between rounded-lg pt-10 xl:flex-row"
-                }
-                id="workflow-section"
-            >
-                <div
-                    className="mt-12 grid w-full grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3"
-                    id="workflow-cards"
-                >
-                    {cards.map((card, i: number) => (
-                        <WorkflowCard
-                            key={i}
-                            title={card.title}
-                            desc={card.desc}
-                            id={card.id}
-                            color={card.color}
+
+                {/* RIGHT */}
+                <div className="flex flex-col justify-center">
+                    <div className="relative aspect-3/4 w-full overflow-hidden rounded-2xl">
+                        <Image
+                            src={steps[activeStep].image}
+                            alt={steps[activeStep].title}
+                            fill
+                            className="object-cover"
                         />
-                    ))}
+
+                        {/* Black Overlay */}
+                        <div className="absolute inset-0 bg-black/50" />
+
+                        {/* Content */}
+                        <div className="absolute inset-0 flex flex-col justify-end p-8 text-white">
+                            <h2 className="text-3xl font-bold">
+                                {steps[activeStep].title}
+                            </h2>
+
+                            <p className="mt-3 max-w-md text-white/90">
+                                {steps[activeStep].description}
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
-    );
-};
-
-type WorkflowCardProps = {
-    id?: string;
-    title?: string;
-    desc?: string;
-    color?: string;
-    ref?: React.Ref<HTMLDivElement>;
-};
-
-const WorkflowCard = ({
-    id = "01",
-    title = "Title",
-    desc = "Desc",
-    color = "brand",
-    ref,
-}: WorkflowCardProps) => {
-    const colorMap: Record<
-        string,
-        {
-            gradient: string;
-            numberBg: string;
-            numberText: string;
-            border: string;
-            borderHover: string;
-        }
-    > = {
-        brand: {
-            gradient: "from-brand/10 via-white to-white",
-            numberBg: "bg-brand",
-            numberText: "text-brand",
-            border: "border-brand/20",
-            borderHover: "hover:border-brand/80",
-        },
-        cambridge: {
-            gradient: "from-cambridge/10 via-white to-white",
-            numberBg: "bg-cambridge",
-            numberText: "text-cambridge",
-            border: "border-cambridge/20",
-            borderHover: "hover:border-cambridge/80",
-        },
-        teal: {
-            gradient: "from-teal/10 via-white to-white",
-            numberBg: "bg-teal",
-            numberText: "text-teal",
-            border: "border-teal/20",
-            borderHover: "hover:border-teal/80",
-        },
-        coral: {
-            gradient: "from-coral/10 via-white to-white",
-            numberBg: "bg-coral",
-            numberText: "text-coral",
-            border: "border-coral/20",
-            borderHover: "hover:border-coral/80",
-        },
-        lavender: {
-            gradient: "from-lavender/10 via-white to-white",
-            numberBg: "bg-lavender",
-            numberText: "text-lavender",
-            border: "border-lavender/20",
-            borderHover: "hover:border-lavender/80",
-        },
-        indigo: {
-            gradient: "from-indigo/10 via-white to-white",
-            numberBg: "bg-indigo",
-            numberText: "text-indigo",
-            border: "border-indigo/20",
-            borderHover: "hover:border-indigo/80",
-        },
-    };
-
-    const colors = colorMap[color] || colorMap.brand;
-
-    return (
-        <div
-            ref={ref}
-            className={`workflow-card group relative container mx-auto grid h-44 w-full grid-cols-3 grid-rows-2 overflow-hidden rounded-xl transition-all duration-300 lg:grid-cols-3 xl:grid-cols-4 ${
-                id === "contact"
-                    ? "from-brand to-brand/80 hover:from-brand/90 hover:to-brand/70 items-center justify-center bg-linear-to-br shadow-lg"
-                    : `bg-linear-to-br ${colors.gradient} border-2 ${colors.border} ${colors.borderHover} p-8 shadow-md hover:-translate-y-1`
-            }`}
-        >
-            {id === "contact" ? (
-                <a
-                    href="/contact"
-                    className="absolute inset-0 col-span-full row-span-2 flex items-center justify-center text-center text-3xl font-semibold text-white"
-                >
-                    <span>{title}</span>
-                </a>
-            ) : (
-                <>
-                    {/* Number badge with color */}
-                    <div className="relative z-10">
-                        <div
-                            className={`inline-flex h-14 w-14 items-center justify-center rounded-full ${colors.numberBg} shadow-lg transition-transform duration-300 group-hover:scale-110`}
-                        >
-                            <p className="text-xl font-bold text-white">{id}</p>
-                        </div>
-                    </div>
-
-                    {/* Decorative circle in background */}
-                    <div
-                        className={`absolute -top-8 -right-8 h-32 w-32 ${colors.numberBg} rounded-full opacity-5 transition-transform duration-500 group-hover:scale-125`}
-                    ></div>
-
-                    <h3
-                        className={`col-span-2 mb-4 flex h-full w-full items-center text-left text-xl font-bold tracking-tight xl:col-span-3 xl:max-w-lg ${colors.numberText} relative z-10`}
-                    >
-                        {title}
-                    </h3>
-                    <p className="text-charcoal/70 relative z-10 col-span-full mt-2 h-8 text-xs font-medium xl:max-w-md">
-                        {desc}
-                    </p>
-                </>
-            )}
-        </div>
     );
 };
 

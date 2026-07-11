@@ -4,6 +4,7 @@ export type TestimonialItem = {
     company: string;
     testimonial: string;
     via?: string;
+    image?: string;
 };
 
 export const testimonialData: TestimonialItem[] = [
@@ -14,6 +15,7 @@ export const testimonialData: TestimonialItem[] = [
         testimonial:
             "Working with Steadfast Studio on the development of my website has been an exceptional experience from start to finish. Their team demonstrated remarkable professionalism, creativity, and technical expertise throughout the entire process. They took the time to understand my hotel, translated my vision into a clean and highly functional design, and executed every detail with precision.",
         via: "Local Reference",
+        image: "/assets/testimonials/shiwani-sharma.jpg",
     },
     {
         name: "Michael Chen",
@@ -22,6 +24,7 @@ export const testimonialData: TestimonialItem[] = [
         testimonial:
             "Outstanding results and exceptional customer service. I would highly recommend this to any business looking to scale.",
         via: "Local Reference",
+        image: "/assets/testimonials/michael-chen.jpg",
     },
     // {
     //     name: "Emma Williams",

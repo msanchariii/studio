@@ -11,7 +11,7 @@ const navigation = [
     { name: "Home", href: "/" },
     { name: "Services", href: "/services" },
     { name: "Our Work", href: "/our-work" },
-    { name: "Pricing", href: "/pricing" },
+    // { name: "Pricing", href: "/pricing" },
 ];
 
 export default function Navbar() {
@@ -48,9 +48,10 @@ export default function Navbar() {
     }, [pathName]);
 
     return (
-        <header className="fixed top-8 right-0 left-0 z-50 px-4 sm:px-6 lg:px-8">
+        <header className="relative z-50 px-4 pt-8 sm:px-6 lg:px-8">
+
             <div className="mx-auto max-w-5xl">
-                <div className="flex h-18 items-center justify-between rounded-2xl border border-gray-200/20 bg-white/60 px-6 shadow-lg shadow-gray-900/5 backdrop-blur-md transition-all duration-300 hover:shadow-xl">
+                <div className="flex h-18 items-center justify-between rounded-full border border-gray-300 bg-white/60 px-6 shadow-sm shadow-gray-900/5 backdrop-blur-md transition-all duration-300">
                     {/* Logo */}
                     <Link href="/" className="flex items-center">
                         <Image
