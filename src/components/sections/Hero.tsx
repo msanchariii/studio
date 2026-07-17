@@ -6,7 +6,8 @@ import Link from "next/link";
 
 export default function Hero() {
     return (
-        <div className="border-cambridge-blue/20 bg-beige/20 relative flex min-h-screen flex-col overflow-hidden bg-[url(/hero.jpg)] bg-cover px-4 pt-32 pb-16 sm:px-6 lg:px-8 rounded-4xl m-4">
+
+        <div className="border-cambridge-blue/20 bg-beige/20 relative flex min-h-screen flex-col overflow-hidden bg-[url(/hero.jpg)] bg-cover px-4 pt-32 pb-16 sm:px-6 lg:px-8 rounded-4xl m-4 -mt-24">
             <div className="text-center">
                 <h1 className="mb-4 text-6xl font-medium">SteadFast Studio</h1>
                 <p className="mx-auto mb-8 max-w-2xl">

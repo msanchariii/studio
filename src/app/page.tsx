@@ -6,16 +6,16 @@ import WhoWeServe from "@/components/sections/OurProducts";
 import OurTeam from "@/components/sections/OurTeam";
 import Testimonial from "@/components/sections/Testimonial";
 import Workflow from "@/components/sections/Workflow";
+import { Settings } from "lucide-react";
 import Image from "next/image";
 // import Workflow from "@/components/sections/Workflow";
 // import WhatYouGet from "@/components/WhatYouGet";
-
 
 export default function Home() {
     return (
         <>
             <Hero />
-            <WhoWeServe />
+            {/* <WhoWeServe /> */}
             <OurBestsellers />
             <div className="group relative overflow-hidden">
                 <Image
@@ -48,7 +48,6 @@ export default function Home() {
                 </div>
             </div>
 
-             
             <section className="h-screen max-w-none bg-gray-100 p-8">
                 <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 sm:grid-cols-3">
                     <div className="group relative h-full w-full overflow-hidden rounded-2xl bg-gray-500">
@@ -65,7 +64,7 @@ export default function Home() {
 
                         {/* Text */}
                         <div className="absolute inset-0 flex flex-col justify-end p-6 text-white">
-                            <p className="text-emerald-300 mb-2 font-mono text-xs tracking-[0.3em] uppercase">
+                            <p className="mb-2 font-mono text-xs tracking-[0.3em] text-emerald-300 uppercase">
                                 Shopify
                             </p>
 
@@ -79,7 +78,7 @@ export default function Home() {
                             </p>
                         </div>
                     </div>
-                    <div className="flex h-full w-full flex-col rounded-2xl bg-[#F99967] p-4">
+                    <div className="flex h-full w-full flex-col rounded-2xl bg-[#F99967] p-6">
                         <div className="flex h-12 w-48 items-center justify-center rounded-full bg-white px-2">
                             <div className="size-8 rounded-full bg-emerald-100">
                                 .
@@ -102,8 +101,56 @@ export default function Home() {
                             </div>
                         </div>
                     </div>
-                    <div className="h-full w-full rounded-2xl bg-gray-50">
-                        c
+                    <div className="flex h-full w-full flex-col justify-between rounded-2xl bg-gray-50 p-6">
+                        <div>
+                            <p className="text-sm font-light uppercase">
+                                Some Heading
+                            </p>
+                            <h3 className="text-lg font-semibold">
+                                Lorem ipsum, dolor
+                            </h3>
+                        </div>
+                        <div className="mt-4 flex flex-col gap-2">
+                            <div className="flex flex-row items-center gap-2 rounded-lg border border-gray-200 p-2">
+                                <div className="rounded-lg bg-green-900 p-4">
+                                    <Settings className="size-4 text-gray-100" />
+                                </div>
+                                <div>
+                                    <h4 className="text-sm font-semibold text-gray-700">
+                                        Lorem ipsum
+                                    </h4>
+                                    <p className="text-xs text-gray-500">
+                                        Lorem ipsum dolor sit amet
+                                    </p>
+                                </div>
+                            </div>
+                            <div className="flex flex-row items-center gap-2 rounded-lg border border-gray-200 p-2">
+                                <div className="rounded-lg bg-green-900 p-4">
+                                    <Settings className="size-4 text-gray-100" />
+                                </div>
+                                <div>
+                                    <h4 className="text-sm font-semibold text-gray-700">
+                                        Lorem ipsum
+                                    </h4>
+                                    <p className="text-xs text-gray-500">
+                                        Lorem ipsum dolor sit amet
+                                    </p>
+                                </div>
+                            </div>
+                            <div className="flex flex-row items-center gap-2 rounded-lg border border-gray-200 p-2">
+                                <div className="rounded-lg bg-green-900 p-4">
+                                    <Settings className="size-4 text-gray-100" />
+                                </div>
+                                <div>
+                                    <h4 className="text-sm font-semibold text-gray-700">
+                                        Lorem ipsum
+                                    </h4>
+                                    <p className="text-xs text-gray-500">
+                                        Lorem ipsum dolor sit amet
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
