@@ -3,7 +3,7 @@ import PointyPattern from "./PointyPattern";
 import Image from "next/image";
 
 const Footer = () => (
-    <footer className="bg-brand relative min-h-[60dvh] overflow-hidden rounded-t-3xl px-6 py-12 text-white md:mx-2 md:mb-2 md:rounded-3xl xl:px-12 2xl:px-16">
+    <footer className="bg-french-blue relative min-h-[40dvh] overflow-hidden px-6 py-8 text-white md:mx-2 md:mb-1 xl:px-12 2xl:px-16">
         {/* Subtle pattern overlay */}
         <div className="absolute inset-0 opacity-10">
             <PointyPattern />
@@ -11,9 +11,9 @@ const Footer = () => (
 
         <div className="relative z-10">
             {/* Top Section - Logo and Links */}
-            <div className="mb-16 flex flex-col justify-between gap-8 lg:flex-row lg:items-start">
+            <div className="mb-10 flex flex-col justify-between gap-4 lg:flex-row lg:items-start">
                 {/* Logo */}
-                <div className="flex flex-col gap-6">
+                <div className="flex flex-col gap-4">
                     <div className="flex h-16 w-16 items-center justify-center rounded bg-white/40 backdrop-blur-sm">
                         <Image
                             src={"/assets/global/logo.svg"}
@@ -23,14 +23,14 @@ const Footer = () => (
                             width={128}
                         />
                     </div>
-                    <p className="max-w-sm text-sm leading-relaxed text-white/80">
+                    <p className="max-w-xs text-sm leading-relaxed text-white/80">
                         Building fast, scalable websites for businesses ready to
                         grow.
                     </p>
                 </div>
 
                 {/* Navigation Links */}
-                <div className="grid grid-cols-2 gap-8 sm:flex sm:gap-12">
+                <div className="grid grid-cols-2 gap-4 sm:flex sm:gap-8">
                     {footerLinks.map((link) => (
                         <div key={link.id + "footerLink"}>
                             <a
@@ -63,22 +63,22 @@ const Footer = () => (
             </div>
 
             {/* Middle Section - Main Message */}
-            <div className="mb-16 border-y border-white/20 py-12">
-                <h2 className="text-4xl leading-tight font-bold text-white sm:text-5xl lg:text-6xl">
+            <div className="mb-10 border-y border-white/20 py-8">
+                <h2 className="leading-tight font-bold text-vintage-grape-100 text-3xl sm:text-4xl lg:text-5xl">
                     Your brand deserves better.
                     <br />
-                    <span className="text-white/80">
+                    <span className="text-vanilla-custard-100">
                         Let&apos;s build it right.
                     </span>
                 </h2>
             </div>
 
             {/* Bottom Section - Contact Info */}
-            <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+            <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
                 {/* Contact Details */}
-                <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
+                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                     <div>
-                        <p className="mb-2 text-xs font-semibold tracking-wider text-white/60 uppercase">
+                        <p className="mb-1 text-xs font-semibold tracking-wider text-white/60 uppercase">
                             Email
                         </p>
                         <a
@@ -89,7 +89,7 @@ const Footer = () => (
                         </a>
                     </div>
                     <div>
-                        <p className="mb-2 text-xs font-semibold tracking-wider text-white/60 uppercase">
+                        <p className="mb-1 text-xs font-semibold tracking-wider text-white/60 uppercase">
                             Phone
                         </p>
                         <a
@@ -102,7 +102,7 @@ const Footer = () => (
                 </div>
 
                 {/* Legal Links */}
-                <div className="flex flex-col gap-2 text-xs text-white/60 sm:flex-row sm:gap-6">
+                <div className="flex flex-col gap-2 text-xs text-white/60 sm:flex-row sm:gap-4">
                     <span>© 2026 Steadfast. All rights reserved.</span>
                     <a
                         href="#"

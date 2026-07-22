@@ -4,13 +4,13 @@ import PageHeading from "../PageHeading";
 
 const OurTeam = () => {
     return (
-        <div className="mx-auto max-w-4xl">
+        <div className="mx-auto max-w-7xl">
             <PageHeading
                 title="Our Team"
                 subtitle="Meet the talented individuals behind our success"
                 description="Meet the talented individuals behind our success. Our team is dedicated to delivering exceptional results and providing top-notch service to our clients."
             />
-            <div className="grid grid-cols-2 gap-6 md:grid-cols-3">
+            <div className="grid grid-cols-2 gap-6 md:grid-cols-5">
                 {teamMembers.map((member, idx) => (
                     <div
                         key={idx}
@@ -27,12 +27,12 @@ const OurTeam = () => {
                         <div className="absolute inset-0 bg-linear-to-t from-black/40 to-transparent" />
 
                         {/* Floating Info */}
-                        <div className="absolute inset-x-4 bottom-4 rounded-2xl bg-black/20 p-2 text-center shadow-lg transition-transform duration-300">
-                            <h3 className="font-bold text-white">
+                        <div className="absolute inset-x-4 bottom-4 rounded-2xl bg-white/90 p-2 text-center shadow-lg transition-transform duration-300">
+                            <h3 className="font-bold text-sm text-steel-blue-700">
                                 {member.name}
                             </h3>
 
-                            <p className="text-sm font-semibold text-emerald-500">
+                            <p className="text-xs font-semibold text-vintage-grape-600">
                                 {member.role}
                             </p>
                         </div>

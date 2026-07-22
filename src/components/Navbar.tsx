@@ -51,7 +51,7 @@ export default function Navbar() {
         <header className="relative z-50 px-4 pt-8 sm:px-6 lg:px-8">
 
             <div className="mx-auto max-w-5xl">
-                <div className="flex h-18 items-center justify-between rounded-full border border-gray-300 bg-white/60 px-6 shadow-sm shadow-gray-900/5 backdrop-blur-md transition-all duration-300">
+                <div className="flex h-18 items-center justify-between rounded-full border border-gray-50 bg-white px-6 shadow shadow-gray-900/20 backdrop-blur-md transition-all duration-300">
                     {/* Logo */}
                     <Link href="/" className="flex items-center">
                         <Image
@@ -67,14 +67,9 @@ export default function Navbar() {
                     {/* Navigation Links */}
                     <nav
                         ref={navRef}
-                        className="relative hidden items-center rounded-full bg-gray-100/60 px-2 py-1.5 backdrop-blur-sm md:flex"
+                        className="relative hidden items-center rounded-full px-2 py-1.5 backdrop-blur-sm md:flex"
                     >
                         {/* Sliding background pill */}
-                        <div
-                            ref={pillRef}
-                            className="absolute top-1.5 left-0 h-[calc(100%-12px)] rounded-full bg-white shadow-sm"
-                            style={{ width: 0 }}
-                        />
                         {navigation.map((item, i) => (
                             <Link
                                 key={item.name}
@@ -82,19 +77,10 @@ export default function Navbar() {
                                 ref={(el) => {
                                     linkRefs.current[i] = el;
                                 }}
-                                onMouseEnter={() =>
-                                    movePillTo(linkRefs.current[i])
-                                }
-                                onMouseLeave={() => {
-                                    const activeIndex = navigation.findIndex(
-                                        (n) => n.href === pathName,
-                                    );
-                                    movePillTo(linkRefs.current[activeIndex]);
-                                }}
-                                className={`relative z-10 rounded-full px-5 py-2 text-sm font-medium transition-colors duration-200 ${
+                                className={`relative z-10 rounded-xl px-5 py-2 text-sm font-semibold transition-colors duration-200 ${
                                     item.href === pathName
                                         ? "text-gray-900"
-                                        : "text-gray-600 hover:text-gray-900"
+                                        : "text-gray-800 hover:bg-sky-100 hover:text-sky-600"
                                 }`}
                             >
                                 {item.name}
@@ -105,7 +91,7 @@ export default function Navbar() {
                     {/* CTA Button */}
                     <Link
                         href="/contact"
-                        className="group hidden items-center rounded-full bg-[#306C4D] px-6 py-2.5 font-semibold text-white shadow-md shadow-[#306C4D]/40 transition-all duration-200 hover:scale-105 md:flex"
+                        className="group hidden items-center rounded-full bg-french-blue px-6 py-2.5 font-semibold text-white transition-all duration-200 hover:scale-105 md:flex"
                     >
                         Contact{" "}
                         <ArrowRight className="ml-2 h-5 w-5 rounded-full bg-white stroke-3 p-0.5 text-[#306C4D] transition-transform duration-200 group-hover:translate-x-1" />

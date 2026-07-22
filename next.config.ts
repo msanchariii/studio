@@ -17,6 +17,16 @@ const nextConfig: NextConfig = {
     //         },
     //     ];
     // },
+    images:{
+        remotePatterns: [
+            {
+                hostname: "i.pinimg.com",
+                protocol: "https",
+                // port: "",
+                // pathname: "/1200x/45/c0/86/45c08695ac7400476965367aababdd3b.jpg",
+            }
+        ]
+    }
 };
 
 export default nextConfig;

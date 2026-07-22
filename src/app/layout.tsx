@@ -109,11 +109,11 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body
-                className={`${inter.variable} ${balooBhai2.variable} ${poppins.variable} font-poppins bg-white antialiased`}
+                className={`${inter.variable} ${balooBhai2.variable} ${poppins.variable} font-poppins bg-vanilla-custard-50 antialiased`}
             >
                 <GsapProvider>
                     <Navbar />
-                    <main className="mx-auto w-full">{children}</main>
+                    <main className="">{children}</main>
                     <Footer />
                 </GsapProvider>
             </body>

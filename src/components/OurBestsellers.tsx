@@ -24,24 +24,7 @@ const featuredProduct = {
 const OurBestsellers = () => {
     return (
         <section className="relative overflow-hidden px-4 py-16 sm:px-6 md:py-20 lg:px-8">
-            <div className="mb-4">
-                <div className="mb-5 flex items-center gap-2 font-mono text-xs tracking-[0.15em] text-emerald-400">
-                    <span className="text-black/30">[</span>
-                    <span className="relative flex h-1.5 w-1.5">
-                        <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60" />
-                        <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-400" />
-                    </span>
-                    bestsellers
-                    <span className="text-black/30">]</span>
-                </div>
-                <h2 className="mb-4 max-w-2xl text-3xl leading-tight font-bold tracking-tight text-gray-900 md:text-4xl">
-                    Get to know our{" "}
-                    <span className="text-emerald-400">bestsellers.</span>
-                </h2>
-                <p className="max-w-md border-l-2 border-black/10 pl-4 font-mono text-[13px] leading-relaxed text-gray-700">
-                    bestsellers that will boost your business growth.
-                </p>
-            </div>
+            
             {/* Best Sellers Grid */}
             {featuredProduct && (
                 <div className="mb-8 bg-[#9DF6EF] p-6 rounded-2xl text-white">

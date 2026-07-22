@@ -5,6 +5,7 @@ export type TestimonialItem = {
     testimonial: string;
     via?: string;
     image?: string;
+    translatedTestimonial?: string;
 };
 
 export const testimonialData: TestimonialItem[] = [
@@ -18,12 +19,22 @@ export const testimonialData: TestimonialItem[] = [
         image: "/assets/testimonials/shiwani-sharma.jpg",
     },
     {
-        name: "Michael Chen",
-        position: "Product Manager",
+        name: "Ayan Santra",
+        position: "Filmmaker & Writer",
         company: "InnovateCorp",
         testimonial:
-            "Outstanding results and exceptional customer service. I would highly recommend this to any business looking to scale.",
-        via: "Local Reference",
+            "খুবই পরিচ্ছন্ন আর চমৎকার পোর্টফোলিও বানিয়ে দিয়েছে। এত ঝকঝকে আর স্মার্ট ওয়েবসাইট যে নিজের কাজের সমাহারকে প্রদর্শন করার জন্য আর অতিরিক্ত একটা শব্দও খরচ করতে হয় না।",
+        translatedTestimonial:"They have created a truly clean and excellent portfolio. It is such a sleek and smart website that not a single extra word is needed to showcase the collection of work.",
+            via: "Local Reference",
+        image: "/assets/testimonials/michael-chen.jpg",
+    },
+    {
+        name: "Manjeet S.",
+        position: "Founder & CEO",
+        company: "Aiinfox",
+        testimonial:
+            "She has done a great job. Delivered project on time and followed all instructions.",
+        via: "Freelancer",
         image: "/assets/testimonials/michael-chen.jpg",
     },
     // {

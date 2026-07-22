@@ -17,36 +17,6 @@ export default function Home() {
             <Hero />
             {/* <WhoWeServe /> */}
             <OurBestsellers />
-            <div className="group relative overflow-hidden">
-                <Image
-                    src="/assets/full-shopping.jpg"
-                    alt="Full Shopping"
-                    width={1920}
-                    height={1080}
-                    className="h-screen w-full object-cover transition duration-500 sm:h-[90vh]"
-                />
-
-                {/* Black Overlay */}
-                <div className="absolute inset-0 bg-black/70" />
-
-                {/* Text */}
-                <div className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center text-white">
-                    <h2 className="text-3xl font-bold">
-                        Want to take your D2C brand <br /> to the next level? We
-                        can help.
-                    </h2>
-
-                    <p className="mt-3 max-w-lg text-white/70">
-                        You build the brand, we&apos;ll help you from design,
-                        setup, domains and hosting to make your brand a success.
-                    </p>
-                    <div className="mt-4">
-                        <button className="bg-white px-4 py-2 font-medium text-black transition duration-300">
-                            Get Started
-                        </button>
-                    </div>
-                </div>
-            </div>
 
             <section className="h-screen max-w-none bg-gray-100 p-8">
                 <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 sm:grid-cols-3">
@@ -156,9 +126,42 @@ export default function Home() {
             </section>
             {/* <WhatYouGet /> */}
             <Workflow />
-            <OurTeam />
             <Testimonial />
+            <OurTeam />
             <FAQ />
+            <div className="flex items-center justify-center p-12">
+                <div className="group relative overflow-hidden">
+                    <Image
+                        src="/assets/full-shopping.jpg"
+                        alt="Full Shopping"
+                        width={1920}
+                        height={1080}
+                        className="h-full w-full object-cover transition duration-500 sm:h-[90vh]"
+                    />
+
+                    {/* Black Overlay */}
+                    <div className="absolute inset-0 bg-black/70" />
+
+                    {/* Text */}
+                    <div className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center text-white">
+                        <h2 className="text-xl sm:text-2xl max-w-xl md:text-3xl font-bold">
+                            Want to take your D2C brand to the next
+                            level?
+                        </h2>
+
+                        <p className="text-xs sm:text-base mt-3 max-w-lg text-white/70">
+                            You build the brand, we&apos;ll help you from
+                            design, setup, domains and hosting to make your
+                            brand a success.
+                        </p>
+                        <div className="mt-4">
+                            <button className="bg-white px-4 py-2 font-medium text-black transition duration-300">
+                                Get Started
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
             {/* <PosterPopup /> */}
         </>
     );
