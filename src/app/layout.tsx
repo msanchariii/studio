@@ -111,11 +111,38 @@ export default function RootLayout({
             <body
                 className={`${inter.variable} ${balooBhai2.variable} ${poppins.variable} font-poppins bg-white antialiased`}
             >
-                <GsapProvider>
+                <div>
+                    <main className="flex min-h-screen items-center justify-center px-6">
+                        <div className="max-w-lg text-center">
+                            <h1 className="text-4xl font-bold text-gray-900 md:text-5xl">
+                                🚧 Under Maintenance
+                            </h1>
+
+                            <p className="mt-6 text-lg leading-relaxed text-gray-600">
+                                We&apos;re currently performing a
+                                maintenance to improve your experience.
+                                We&apos;ll be back online shortly.
+                            </p>
+
+                            <div className="mt-8 inline-flex items-center rounded-lg border border-gray-200 bg-white px-6 py-4 shadow-sm">
+                                <span className="mr-2 text-gray-500">📞</span>
+                                <p className="text-gray-800">
+                                    <a
+                                        href="tel:+91XXXXXXXXXX"
+                                        className="font-semibold text-blue-600 hover:underline"
+                                    >
+                                        +91 9239505770
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                    </main>
+                </div>
+                {/* <GsapProvider>
                     <Navbar />
                     <main className="mx-auto w-full max-w-360">{children}</main>
                     <Footer />
-                </GsapProvider>
+                </GsapProvider> */}
             </body>
         </html>
     );
