@@ -128,7 +128,7 @@ export default function RootLayout({
                                 <span className="mr-2 text-gray-500">📞</span>
                                 <p className="text-gray-800">
                                     <a
-                                        href="tel:+91XXXXXXXXXX"
+                                        href="tel:+919239505770"
                                         className="font-semibold text-blue-600 hover:underline"
                                     >
                                         +91 9239505770
